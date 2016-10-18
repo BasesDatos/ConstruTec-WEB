@@ -1,0 +1,4 @@
+<tr ng-repeat = "s in occupation | filter:Oname">
+            <td> <a ng-click="data(s.Oname)"  href="">{{s.Oname}}</a></td>
+            <td>{{s.salary}} </td>
+</tr>

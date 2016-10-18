@@ -1,0 +1,48 @@
+            <form class="form-horizontal" role="form">
+                <div class="row">
+                    <div class="col-sm-2"></div>
+                    <div class="col-sm-7">
+                        <center><h1><b><p class="text-danger">PROYECTOS</p></b></h1></center>       
+                    
+                    </div>
+                </div>
+                <br><br>
+                <div class="row">
+                    <div class="col-sm-2"></div>
+                    <div class="col-sm-7">
+                        <table class = "table table-borderless table-condensed table-hover">
+                            <caption><p class="text-danger">{{usuario}}</p></caption>
+                               <thead>
+                                  <tr>
+                                      <th><p style="color:#46C6E6">PROYECTO</p></th>
+                                      <th><p style="color:#46C6E6">ESTADO</p></th>
+                                      <th><p style="color:#46C6E6">COSTO</p></th>
+                                      <th><p style="color:#46C6E6">Borrar</p></th>
+                                  </tr>
+                               </thead>
+
+                               <tbody>
+                                  <tr ng-repeat="n in lProyecto">
+                                      
+                                      <td><a ng-click="setNP(n.pNombre)" href="#etapas">{{n.pNombre}}</a></td>
+                                     <td>{{n.pEstado}}</td>
+                                      <td>{{n.pCosto}}</td>
+                                      <td><span class="glyphicon glyphicon-trash"></span></td>
+                                  </tr>
+
+                                  
+                               </tbody>
+   
+                        </table>
+                        
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-2"></div>
+                    <div class="col-sm-7">
+                        <button type = "button" class = "btn btn-info btn-lg btn-block">
+                            <span class = "glyphicon glyphicon-plus"></span> Nuevo Proyecto
+                        </button>
+                    </div>
+                </div>
+</form>
