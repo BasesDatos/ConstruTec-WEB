@@ -18,10 +18,16 @@ proyectoE.config(['$routeProvider', function($routeProvider) {
                templateUrl: 'newEtapa.html',
                controller: 'etapaController'
             }).
+            when('/products', {
+               templateUrl: 'products.html',
+               controller: 'listaProductosController'
+            }).
             otherwise({
                redirectTo: '/'
             });
          }]);
+
+
 
   
      

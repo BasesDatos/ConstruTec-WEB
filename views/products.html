@@ -1,0 +1,418 @@
+<!-- 
+            Boton flotante: Este dirige la pagina hacia la seccion donde se encuentra el boton para agregar productos en una etapa.
+        -->
+       <a class='flotante' href='#b2' ><img src='https://lh3.googleusercontent.com/5aI-VClrZ3nTgDzjd7MKeX1R_vHC_Ks8nJksNADBJraNaXfeph9lT1cDKWcyk9lO_LY=h150' border="0" height="50" width="50"/></a>
+       
+       <!--
+            ng-app= index 0: Nombre que se le asigna a la aplicacion angular.
+            ng-controller= index0controller: Nombre de uno de los controladores que maneja la aplicacion angular.
+
+            * En esta seccion se van a colocar las distintas partes de lenguaje bootstrap y angular, las cuales van a compartir la
+              misma pagina web y conbinaran su funcionalidad.
+        -->
+       <div>
+           
+                  <div id= "id_About" class="jumbotron text-center">
+                            <h1>Constru-TEC</h1> 
+                  </div>
+           
+                  <div class="text-center" ng-show="loading">
+                            <h1>Loading...</h1>
+                  </div>
+           
+                  <!-- Esta seccion va a contener la vista general de los productos que posea la ferretería Epatec, lo hara de la siguiente forma:
+                        se mostrara una barra de navegacion de dos pestañas, una para mostrar las categorias de productos y otra para mostrar
+                        todos los productos disponibles sin necesidad de hacer ninguna clase de filtro -->  
+                  <div class="container" ng-hide="loading">
+                      
+                          <h2 style="color:#954240"><strong>Productos de ferreteria</strong></h2>
+                      
+                          <ul class="nav nav-tabs" style="color:#954240">
+                                <li class="active"><a data-toggle="tab" href="#categorias">Categorias</a></li>
+                                <li><a data-toggle="tab" href="#todo">Todos</a></li>
+                          </ul>
+                      
+                      <!-- Esta seccion contiene todo el contenido de la barra de navegacion creada en la seccion anterior, esta sobre si misma tendra
+                            cargados las dos grandes partes de la seccion, que es los elementos de las categorias y los elementos de la vista 
+                            completa de atributos-->
+                      <div class="tab-content"> 
+                          
+                          <!-- Esta es la primera parte del contenido. Aca se muestra las categorias de productos de manera de cascada, donde el usuario puede seleccionar una categoria y esta despliega una lista de productos seleccionados segun su atributo categoria.-->
+                          <div class="tab-pane fade in active" id="categorias"> 
+                                      <!--0 ----------------------------------------------------------------------------------- --> 
+                                      <button type="button" class="btn btn-danger btn-block" id="b1" ng-click="hideElements0 = !hideElements0">Trabajo Preliminar</button>
+                              
+                                      <div class="container-fluid text-center" id="cont0" ng-show="hideElements0">
+                                            <h1 class="text-info">Encuentre todo lo que necesite para empezar a construir aquí!</h1>
+                                            
+                                                       <div class="row text-center">
+                                                                <div id="col{{p.id}}" class="col-sm-6 text-center " ng-repeat="p in lProducts | filter: { categoria: 'Trabajo Preliminar' }" table-hover>
+                                                                        <h1></h1>
+                                                                        <IMG src="http://vignette3.wikia.nocookie.net/monsterhunterespanol/images/a/aa/Imagen-no-disponible-282x300.png/revision/latest?cb=20140827124248&path-prefix=es" ALT="Bontón Editar" height="250" width="250">
+                                                                        <h1><strong>Articulo: {{ p.name }}</strong></h1>
+                                                                        <h2><strong>Codigo: {{ p.id }}</strong></h2>
+                                                                        <h3><strong>Cant. Disponible: {{ p.stock }}</strong></h3>
+                                                                        <h4>Categoria: {{ p.categoria }}</h4>
+                                                                        <label for="cant{{p.id}}">Cant. a adquirir</label>
+                                                                        <div id="cantidadText">
+                                                                              <input class="form-control" id="cant{{p.id}}" name="cant{{p.id}}" type="number" ng-model="disablelist0" ng-click="disablelist1 = false"  required>
+                                                                              <span style="color:red" ng-show = "cont10.cant{{p.id}}.$dirty && cont10.cant{{p.id}}.$invalid">
+                                                                              </span>
+                                                                        </div>
+                                                                        <div class="checkbox">
+                                                                                <label><input type="checkbox" value="" ng-disabled="!disablelist0" ng-checked="!!disablelist1 && !disableList0" ng-model="disablelist1">Agregar {{ p.name }}</label>
+                                                                        </div>
+                                                                        <h5>------------------------------------------------------------</h5>
+                                                                </div>
+                                                        </div>
+                                                
+                                      </div>
+                                      <!-- 1----------------------------------------------------------------------------------- -->  
+                                      <a href="#cont1" ng-click="hideElements1 = !hideElements1"><button type="button" class="btn btn-danger btn-block" id="b1">Cimientos</button></a>
+                              
+                                      <div class= "container-fluid  text-center" id= "cont1" ng-show="hideElements1">
+                                               <h1 class="text-info">Encuentre todo lo que necesite para construir elos cimientos de su construccion aquí!</h1>
+                                           
+                                                       <div class="row text-center">
+                                                                <div id="col{{p.id}}" class="col-sm-6 text-center " ng-repeat="p in lProducts | filter: { categoria: 'Cimientos' }" table-hover>
+                                                                        <h1></h1>
+                                                                        <IMG src="http://vignette3.wikia.nocookie.net/monsterhunterespanol/images/a/aa/Imagen-no-disponible-282x300.png/revision/latest?cb=20140827124248&path-prefix=es" ALT="Bontón Editar" height="250" width="250">
+                                                                        <h1><strong>Articulo: {{ p.name }}</strong></h1>
+                                                                        <h2><strong>Codigo: {{ p.id }}</strong></h2>
+                                                                        <h3><strong>Cant. Disponible: {{ p.stock }}</strong></h3>
+                                                                        <h4>Categoria: {{ p.categoria }}</h4>
+                                                                        <label for="cant{{p.id}}">Cant. a adquirir</label>
+                                                                        <div id="cantidadText">
+                                                                              <input class="form-control" id="cant{{p.id}}" name="cant{{p.id}}" type="number" ng-model="disablelist0" ng-click="disablelist1 = false"  required>
+
+                                                                              <span style="color:red" ng-show = "cont10.cant{{p.id}}.$dirty && cont10.cant{{p.id}}.$invalid">
+                                                                              </span>
+                                                                        </div>
+                                                                        <div class="checkbox">
+                                                                                <label><input type="checkbox" value="" ng-disabled="!disablelist0" ng-checked="!!disablelist1 && !disableList0" ng-model="disablelist1">Agregar {{ p.name }}</label>
+                                                                        </div>
+                                                                        <h5>------------------------------------------------------------</h5>
+                                                                </div>
+                                                        </div>
+                                                
+                                      </div>
+                                      <!-- 2----------------------------------------------------------------------------------- -->  
+                                      <a href="#cont2" ng-click="hideElements2 = !hideElements2"><button type="button" class="btn btn-danger btn-block" id="b1">Paredes</button></a>
+                              
+                                      <div class= "container-fluid  text-center" id= "cont2" ng-show="hideElements2">
+                                               <h1 class="text-info">Encuentre todo lo que necesite para construir sus paredes aquí!</h1>
+                                              
+                                                       <div class="row text-center">
+                                                                <div id="col{{p.id}}" class="col-sm-6 text-center " ng-repeat="p in lProducts | filter: { categoria: 'Paredes' }" table-hover>
+                                                                        <h1></h1>
+                                                                        <IMG src="http://vignette3.wikia.nocookie.net/monsterhunterespanol/images/a/aa/Imagen-no-disponible-282x300.png/revision/latest?cb=20140827124248&path-prefix=es" ALT="Bontón Editar" height="250" width="250">
+                                                                        <h1><strong>Articulo: {{ p.name }}</strong></h1>
+                                                                        <h2><strong>Codigo: {{ p.id }}</strong></h2>
+                                                                        <h3><strong>Cant. Disponible: {{ p.stock }}</strong></h3>
+                                                                        <h4>Categoria: {{ p.categoria }}</h4>
+                                                                        <label for="cant{{p.id}}">Cant. a adquirir</label>
+                                                                        <div id="cantidadText">
+                                                                              <input class="form-control" id="cant{{p.id}}" name="cant{{p.id}}" type="number" ng-model="disablelist0" ng-click="disablelist1 = false"  required>
+                                                                              <span style="color:red" ng-show = "cont10.cant{{p.id}}.$dirty && cont10.cant{{p.id}}.$invalid">
+                                                                              </span>
+                                                                        </div>
+                                                                        <div class="checkbox">
+                                                                                <label><input type="checkbox" value="" ng-disabled="!disablelist0" ng-checked="!!disablelist1 && !disableList0" ng-model="disablelist1">Agregar {{ p.name }}</label>
+                                                                        </div>
+                                                                        <h5>------------------------------------------------------------</h5>
+                                                                </div>
+                                                        </div>
+                                               
+                                      </div>
+                                      <!--3 ----------------------------------------------------------------------------------- --> 
+                                      <a href="#cont3" ng-click="hideElements3 = !hideElements3"><button type="button" class="btn btn-info btn-block" id="b1">Techos</button></a>
+                              
+                                      <div class= "container-fluid text-center" id= "cont3" ng-show="hideElements3">
+                                               <h1 class="text-info">Encuentre todo lo que necesite para construir su techo aquí!</h1>
+                                              
+                                                       <div class="row text-center">
+                                                                <div id="col{{p.id}}" class="col-sm-6 text-center " ng-repeat="p in lProducts | filter: { categoria: 'Techos' }" table-hover>
+                                                                        <h1></h1>
+                                                                        <IMG src="http://vignette3.wikia.nocookie.net/monsterhunterespanol/images/a/aa/Imagen-no-disponible-282x300.png/revision/latest?cb=20140827124248&path-prefix=es" ALT="Bontón Editar" height="250" width="250">
+                                                                        <h1><strong>Articulo: {{ p.name }}</strong></h1>
+                                                                        <h2><strong>Codigo: {{ p.id }}</strong></h2>
+                                                                        <h3><strong>Cant. Disponible: {{ p.stock }}</strong></h3>
+                                                                        <h4>Categoria: {{ p.categoria }}</h4>
+                                                                        <label for="cant{{p.id}}">Cant. a adquirir</label>
+                                                                        <div id="cantidadText">
+                                                                              <input class="form-control" id="cant{{p.id}}" name="cant{{p.id}}" type="number" ng-model="disablelist0" ng-click="disablelist1 = false"  required>
+                                                                              <span style="color:red" ng-show = "cont10.cant{{p.id}}.$dirty && cont10.cant{{p.id}}.$invalid">
+                                                                              </span>
+                                                                        </div>
+                                                                        <div class="checkbox">
+                                                                                <label><input type="checkbox" value="" ng-disabled="!disablelist0" ng-checked="!!disablelist1 && !disableList0" ng-model="disablelist1">Agregar {{ p.name }}</label>
+                                                                        </div>
+                                                                        <h5>------------------------------------------------------------</h5>
+                                                                </div>
+                                                        </div>
+                                               
+                                      </div>
+                                      <!--4 ----------------------------------------------------------------------------------- -->  
+                                      <a href="#cont4" ng-click="hideElements4 = !hideElements4"><button type="button" class="btn btn-info btn-block" id="b1">Pisos</button></a>
+                              
+                                      <div class= "container-fluid text-center" id= "cont4" ng-show="hideElements4">
+                                               <h1 class="text-info">Encuentre todo lo que necesite para construir sus pisos aquí!</h1>
+                                               
+                                                       <div class="row text-center">
+                                                                <div id="col{{p.id}}" class="col-sm-6 text-center " ng-repeat="p in lProducts | filter: { categoria: 'Pisos' }" table-hover>
+                                                                    <h1></h1>
+                                                                    <IMG src="http://vignette3.wikia.nocookie.net/monsterhunterespanol/images/a/aa/Imagen-no-disponible-282x300.png/revision/latest?cb=20140827124248&path-prefix=es" ALT="Bontón Editar" height="250" width="250">
+                                                                    <h1><strong>Articulo: {{ p.name }}</strong></h1>
+                                                                    <h2><strong>Codigo: {{ p.id }}</strong></h2>
+                                                                    <h3><strong>Cant. Disponible: {{ p.stock }}</strong></h3>
+                                                                    <h4>Categoria: {{ p.categoria }}</h4>
+                                                                    <label for="cant{{p.id}}">Cant. a adquirir</label>
+                                                                    <div id="cantidadText">
+                                                                          <input class="form-control" id="cant{{p.id}}" name="cant{{p.id}}" type="number" ng-model="disablelist0" ng-click="disablelist1 = false"  required>
+                                                                          <span style="color:red" ng-show = "cont10.cant{{p.id}}.$dirty && cont10.cant{{p.id}}.$invalid">
+                                                                          </span>
+                                                                    </div>
+                                                                    <div class="checkbox">
+                                                                            <label><input type="checkbox" value="" ng-disabled="!disablelist0" ng-checked="!!disablelist1 && !disableList0" ng-model="disablelist1">Agregar {{ p.name }}</label>
+                                                                    </div>
+                                                                    <h5>------------------------------------------------------------</h5>
+                                                                </div>
+                                                        </div>
+                                                
+                                      </div>
+                                      <!-- 5----------------------------------------------------------------------------------- -->
+                                      <a href="#cont5" ng-click="hideElements5 = !hideElements5"><button type="button" class="btn btn-info btn-block" id="b1">Instalacion Pluvial</button></a>
+                              
+                                      <div class="container-fluid text-center" id="cont5" ng-show="hideElements5">
+                                        <h1 class="text-info">Encuentre todo lo que necesite para construir tuberias y sistemas de desague aquí!</h1>
+                                      
+                                                   <div class="row text-center">
+                                                            <div id="col{{p.id}}" class="col-sm-6 text-center " ng-repeat="p in lProducts | filter: { categoria: 'Instalacion Pluvial' }" table-hover>
+                                                                    <h1></h1>
+                                                                    <IMG src="http://vignette3.wikia.nocookie.net/monsterhunterespanol/images/a/aa/Imagen-no-disponible-282x300.png/revision/latest?cb=20140827124248&path-prefix=es" ALT="Bontón Editar" height="250" width="250">
+                                                                    <h1><strong>Articulo: {{ p.name }}</strong></h1>
+                                                                    <h2><strong>Codigo: {{ p.id }}</strong></h2>
+                                                                    <h3><strong>Cant. Disponible: {{ p.stock }}</strong></h3>
+                                                                    <h4>Categoria: {{ p.categoria }}</h4>
+                                                                    <label for="cant{{p.id}}">Cant. a adquirir</label>
+                                                                    <div id="cantidadText">
+                                                                          <input class="form-control" id="cant{{p.id}}" name="cant{{p.id}}" type="number" ng-model="disablelist0" ng-click="disablelist1 = false"  required>
+                                                                          <span style="color:red" ng-show = "cont10.cant{{p.id}}.$dirty && cont10.cant{{p.id}}.$invalid">
+                                                                          </span>
+                                                                    </div>
+                                                                    <div class="checkbox">
+                                                                            <label><input type="checkbox" value="" ng-disabled="!disablelist0" ng-checked="!!disablelist1 && !disableList0" ng-model="disablelist1">Agregar {{ p.name }}</label>
+                                                                    </div>
+                                                                    <h5>------------------------------------------------------------</h5>
+                                                            </div>
+                                                    </div>
+                                            
+                                      </div>
+                                      <!-- 6----------------------------------------------------------------------------------- -->  
+                                      <a href="#cont6" ng-click="hideElements6 = !hideElements6"><button type="button" class="btn btn-danger btn-block" id="b1">Instalacion Sanitaria</button></a>
+                              
+                                      <div class= "container-fluid text-center" id= "cont6" ng-show="hideElements6">
+                                               <h1 class="text-info">Encuentre todo lo que necesite para construir baños y sanitarios aquí!</h1>
+                                  
+                                                       <div class="row text-center">
+                                                                <div id="col{{p.id}}" class="col-sm-6 text-center " ng-repeat="p in lProducts | filter: { categoria: 'Instalacion Sanitaria' }" table-hover>
+                                                                        <h1></h1>
+                                                                        <IMG src="http://vignette3.wikia.nocookie.net/monsterhunterespanol/images/a/aa/Imagen-no-disponible-282x300.png/revision/latest?cb=20140827124248&path-prefix=es" ALT="Bontón Editar" height="250" width="250">
+                                                                        <h1><strong>Articulo: {{ p.name }}</strong></h1>
+                                                                        <h2><strong>Codigo: {{ p.id }}</strong></h2>
+                                                                        <h3><strong>Cant. Disponible: {{ p.stock }}</strong></h3>
+                                                                        <h4>Categoria: {{ p.categoria }}</h4>
+                                                                        <label for="cant{{p.id}}">Cant. a adquirir</label>
+                                                                        <div id="cantidadText">
+                                                                              <input class="form-control" id="cant{{p.id}}" name="cant{{p.id}}" type="number" ng-model="disablelist0" ng-click="disablelist1 = false"  required>
+                                                                              <span style="color:red" ng-show = "cont10.cant{{p.id}}.$dirty && cont10.cant{{p.id}}.$invalid">
+                                                                              </span>
+                                                                        </div>
+                                                                        <div class="checkbox">
+                                                                                <label><input type="checkbox" value="" ng-disabled="!disablelist0" ng-checked="!!disablelist1 && !disableList0" ng-model="disablelist1">Agregar {{ p.name }}</label>
+                                                                        </div>
+                                                                        <h5>------------------------------------------------------------</h5>
+                                                                </div>
+                                                        </div>
+                                         
+                                      </div>
+                                      <!--7 ----------------------------------------------------------------------------------- -->  
+                                      <a href="#cont7" ng-click="hideElements7 = !hideElements7"><button type="button" class="btn btn-danger btn-block" id="b1">Instalacion Electrica</button></a>
+                              
+                                      <div class= "container-fluid text-center" id= "cont7" ng-show="hideElements7">
+                                               <h1 class="text-info">Area de electricidad</h1>
+                                         
+                                                       <div class="row text-center">
+                                                                <div id="col{{p.id}}" class="col-sm-6 text-center " ng-repeat="p in lProducts | filter: { categoria: 'Instalacion Electrica' }" table-hover>
+                                                                        <h1></h1>
+                                                                        <IMG src="http://vignette3.wikia.nocookie.net/monsterhunterespanol/images/a/aa/Imagen-no-disponible-282x300.png/revision/latest?cb=20140827124248&path-prefix=es" ALT="Bontón Editar" height="250" width="250">
+                                                                        <h1><strong>Articulo: {{ p.name }}</strong></h1>
+                                                                        <h2><strong>Codigo: {{ p.id }}</strong></h2>
+                                                                        <h3><strong>Cant. Disponible: {{ p.stock }}</strong></h3>
+                                                                        <h4>Categoria: {{ p.categoria }}</h4>
+                                                                        <label for="cant{{p.id}}">Cant. a adquirir</label>
+                                                                        <div id="cantidadText">
+                                                                              <input class="form-control" id="cant{{p.id}}" name="cant{{p.id}}" type="number" ng-model="disablelist0" ng-click="disablelist1 = false"  required>
+                                                                              <span style="color:red" ng-show = "cont10.cant{{p.id}}.$dirty && cont10.cant{{p.id}}.$invalid">
+                                                                              </span>
+                                                                        </div>
+                                                                        <div class="checkbox">
+                                                                                <label><input type="checkbox" value="" ng-disabled="!disablelist0" ng-checked="!!disablelist1 && !disableList0" ng-model="disablelist1">Agregar {{ p.name }}</label>
+                                                                            </div>
+                                                                        <h5>------------------------------------------------------------</h5>
+                                                                </div>
+                                                        </div>
+                                            
+                                      </div>
+                                      <!-- 8----------------------------------------------------------------------------------- -->  
+                                      <a href="#cont8" ng-click="hideElements8 = !hideElements8"><button type="button" class="btn btn-danger btn-block" id="b1">Puertas</button></a>
+                              
+                                      <div class= "container-fluid text-center" id= "cont8" ng-show="hideElements8">
+                                               <h1 class="text-info">Encuentre todo lo mejor en puertas aquí!</h1>
+                                            
+                                                       <div class="row text-center">
+                                                                <div id="col{{p.id}}" class="col-sm-6 text-center " ng-repeat="p in lProducts | filter: { categoria: 'Puertas' }" table-hover>
+                                                                    <h1></h1>
+                                                                    <IMG src="http://vignette3.wikia.nocookie.net/monsterhunterespanol/images/a/aa/Imagen-no-disponible-282x300.png/revision/latest?cb=20140827124248&path-prefix=es" ALT="Bontón Editar" height="250" width="250">
+                                                                    <h1><strong>Articulo: {{ p.name }}</strong></h1>
+                                                                    <h2><strong>Codigo: {{ p.id }}</strong></h2>
+                                                                    <h3><strong>Cant. Disponible: {{ p.stock }}</strong></h3>
+                                                                    <h4>Categoria: {{ p.categoria }}</h4>
+                                                                    <label for="cant{{p.id}}">Cant. a adquirir</label>
+                                                                    <div id="cantidadText">
+                                                                          <input class="form-control" id="cant{{p.id}}" name="cant{{p.id}}" type="number" ng-model="disablelist0" ng-click="disablelist1 = false"  required>
+                                                                          <span style="color:red" ng-show = "cont10.cant{{p.id}}.$dirty && cont10.cant{{p.id}}.$invalid">
+                                                                          </span>
+                                                                    </div>
+                                                                    <div class="checkbox">
+                                                                            <label><input type="checkbox" value="" ng-disabled="!disablelist0" ng-checked="!!disablelist1 && !disableList0" ng-model="disablelist1">Agregar {{ p.name }}</label>
+                                                                    </div>
+                                                                    <h5>------------------------------------------------------------</h5>
+                                                                </div>
+                                                        </div>
+                                               
+                                      </div>
+                                      <!--9 ----------------------------------------------------------------------------------- -->
+                                      <a href="#cont9" ng-click="hideElements9 = !hideElements9"><button type="button" class="btn btn-info btn-block" id="b1">Ventanas</button></a>
+                              
+                                      <div class="container-fluid text-center" id="cont9" ng-show="hideElements9">
+                                        <h1 class="text-info">Encuentre todo lo que necesite para construir ventanas aquí!</h1>
+                                        
+                                                   <div class="row text-center">
+                                                            <div id="col{{p.id}}" class="col-sm-6 text-center " ng-repeat="p in lProducts | filter: { categoria: 'Ventanas' }" table-hover>
+                                                                    <h1></h1>
+                                                                    <IMG src="http://vignette3.wikia.nocookie.net/monsterhunterespanol/images/a/aa/Imagen-no-disponible-282x300.png/revision/latest?cb=20140827124248&path-prefix=es" ALT="Bontón Editar" height="250" width="250">
+                                                                    <h1><strong>Articulo: {{ p.name }}</strong></h1>
+                                                                    <h2><strong>Codigo: {{ p.id }}</strong></h2>
+                                                                    <h3><strong>Cant. Disponible: {{ p.stock }}</strong></h3>
+                                                                    <h4>Categoria: {{ p.categoria }}</h4>
+                                                                    <label for="cant{{p.id}}">Cant. a adquirir</label>
+                                                                    <div id="cantidadText">
+                                                                          <input class="form-control" id="cant{{p.id}}" name="cant{{p.id}}" type="number" ng-model="disablelist0" ng-click="disablelist1 = false"  required>
+                                                                          <span style="color:red" ng-show = "cont10.cant{{p.id}}.$dirty && cont10.cant{{p.id}}.$invalid">
+                                                                          </span>
+                                                                    </div>
+                                                                    <div class="checkbox">
+                                                                            <label><input type="checkbox" value="" ng-disabled="!disablelist0" ng-checked="!!disablelist1 && !disableList0" ng-model="disablelist1">Agregar {{ p.name }}</label>
+                                                                    </div>
+                                                                    <h5>------------------------------------------------------------</h5>
+                                                            </div>
+                                                    </div>
+                                               
+                                      </div>
+                                      <!-- 10----------------------------------------------------------------------------------- -->  
+                                      <a href="#cont10" ng-click="hideElements10 = !hideElements10"><button type="button" class="btn btn-info  btn-block" id="b1">Escaleras</button></a>
+                              
+                                      <div class= "container-fluid text-center" id= "cont10" ng-show="hideElements10" name = "cont10" novalidate>
+                                               <h1 class="text-info">Encuentre todo lo que necesite para construir escaleras aquí!</h1>
+                                              
+                                                       <div class="row text-center">
+                                                                <div id="col{{p.id}}" class="col-sm-6 text-center " ng-repeat="p in lProducts | filter: { categoria: 'Escaleras' }" table-hover>
+                                                                        <h1></h1>
+                                                                        <IMG src="http://vignette3.wikia.nocookie.net/monsterhunterespanol/images/a/aa/Imagen-no-disponible-282x300.png/revision/latest?cb=20140827124248&path-prefix=es" ALT="Bontón Editar" height="250" width="250">
+                                                                        <h1><strong>Articulo: {{ p.name }}</strong></h1>
+                                                                        <h2><strong>Codigo: {{ p.id }}</strong></h2>
+                                                                        <h3><strong>Cant. Disponible: {{ p.stock }}</strong></h3>
+                                                                        <h4>Categoria: {{ p.categoria }}</h4>
+                                                                        <label for="cant{{p.id}}">Cant. a adquirir</label>
+                                                                        <div id="cantidadText">
+                                                                              <input class="form-control" id="cant{{p.id}}" name="cant{{p.id}}" type="number" ng-model="disablelist0" ng-click="disablelist1 = false"  required>
+                                                                              <span style="color:red" ng-show = "cont10.cant{{p.id}}.$dirty && cont10.cant{{p.id}}.$invalid">
+                                                                              </span>
+                                                                        </div>
+                                                                        <div class="checkbox">
+                                                                                <label><input type="checkbox" value="" ng-disabled="!disablelist0" ng-checked="!!disablelist1 && !disableList0" ng-model="disablelist1">Agregar {{ p.name }}</label>
+                                                                        </div>
+                                                                        <h5>------------------------------------------------------------</h5>
+                                                                </div>
+                                                        </div>
+                                               
+                                      </div>
+                                      <!-- end ----------------------------------------------------------------------------------- -->
+                           </div>
+                            
+                            <!-- Esta es la segunda parte del contenido. Aca se va a mostrar cada uno de los productos registrados en la ferreteria seleccionada, el cliente puede seleccionar cada uno y la cantidad a comprar y luego añadir a la etapa que esta consultando.-->
+                            <div id="todo" class="tab-pane fade">
+                                      <h3><strong>Todos los productos disponibles en Ferreteria EPATEC!!</strong></h3>
+                                     
+                                                   <div class="row text-center">
+                                                            <div id="col{{p.id}}" class="col-sm-6 text-center " ng-repeat="p in lProducts" table-hover>
+                                                                    <h1></h1>
+                                                                    <IMG src="http://vignette3.wikia.nocookie.net/monsterhunterespanol/images/a/aa/Imagen-no-disponible-282x300.png/revision/latest?cb=20140827124248&path-prefix=es" ALT="Bontón Editar" height="250" width="250">
+                                                                    <h1><strong>Articulo: {{ p.name }}</strong></h1>
+                                                                    <h2><strong>Codigo: {{ p.id }}</strong></h2>
+                                                                    <h3><strong>Cant. Disponible: {{ p.stock }}</strong></h3>
+                                                                    <h4>Categoria: {{ p.categoria }}</h4>
+                                                                    <label for="cant{{p.id}}">Cant. a adquirir</label>
+                                                                    <div id="cantidadText">
+                                                                          <input class="form-control" id="cant{{p.id}}" name="cant{{p.id}}" type="number" ng-model="disablelist0" ng-click="disablelist1 = false"  required>
+                                                                          <span style="color:red" ng-show = "cont10.cant{{p.id}}.$dirty && cont10.cant{{p.id}}.$invalid">
+                                                                          </span>
+                                                                    </div>
+                                                                    <div class="checkbox">
+                                                                            <label><input type="checkbox" value="" ng-disabled="!disablelist0" ng-checked="!!disablelist1 && !disableList0" ng-model="disablelist1">Agregar {{ p.name }}</label>
+                                                                    </div>
+                                                                    <h5>------------------------------------------------------------</h5>
+                                                            </div>
+                                                    </div>
+                                               
+                                      </div>
+                                      <!-- end ----------------------------------------------------------------------------------- -->
+                            <!-- Aca termina la seccion de todos los productos-->
+                            </div>
+                                          
+                            <div class="container-fluid">
+                                    <button type="button" class="btn btn-info  btn-block" id="b2" >Añadir a etapa</button>
+                            </div>
+                </div>   
+        </div>  
+                                          
+        <!-- Contenedor de contacto -->
+        <div id="id_Contact" class="container-fluid ">
+                <h1>Contactenos</h1>
+
+                <div class="row">
+                        <div class="col-sm-5">
+                                <p> Contactenos por em@il, telefono, por nuestro sitio web o visite nuestras sucursales</p>
+                                <p><span class="glyphicon glyphicon-map-marker"></span> Cartago, CR</p>
+                                <p><span class="glyphicon glyphicon-earphone"></span> Tel: +506 27705192</p>
+                                <p><span class="glyphicon glyphicon-envelope"></span> Em@il: epatec@tec.ac.cr</p>
+                        </div>
+                        <div class="col-sm-7">
+                                <div class="row">
+                                    <div class="col-sm-6 form-group">
+                                        <input class="form-control" id="id_nombre_consultante" name="nombre" placeholder="Nombre" type="text" required>
+                                    </div>
+                                    <div class="col-sm-6 form-group">
+                                        <input class="form-control" id="id_email" name="email" placeholder="Email" type="Email" required>
+                                    </div>
+                                </div>
+                                <textarea class="form-control" id="id_comentarios" name="comentarios" placeholder="Comentarios" rows="5"></textarea><br>
+                                <div class="row">
+                                    <div class="col-sm-12 form-group">
+                                        <button class="btn btn-default pull-right" type="submit">Enviar</button>
+                                    </div>
+                                </div> 
+                        </div>
+                </div>
+        </div>
