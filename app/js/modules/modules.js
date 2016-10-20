@@ -10,12 +10,7 @@ regUsers.controller('RegUserController',function($scope){
 
 
 proyectoE.controller("listaProductosController",function($scope){
-    $scope.loading = true;
-    setTimeout(function () {
-        $scope.$apply(function(){
-            $scope.loading = false;
-        });
-    }, 1000);
+    
     $scope.hideElements0 = false;
     $scope.hideElements1 = false;
     $scope.hideElements2 = false;
@@ -27,6 +22,7 @@ proyectoE.controller("listaProductosController",function($scope){
     $scope.hideElements8 = false;
     $scope.hideElements9 = false;
     $scope.hideElements10 = false;
+    $scope.all = false;
     
     $scope.lProducts = [{name : 'Brochas para pintar',id : 'epa-100',stock: '789',categoria: 'Paredes'},
                         {name : 'Cintas adhesivas',id : 'epa-101',stock: '52',categoria: 'Trabajo Preliminar'},
