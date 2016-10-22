@@ -1,4 +1,4 @@
-var regUsers = angular.module("regUser",[]);
+var regUsers = angular.module("regUser",["ngRoute"]);
 var proyectoE = angular.module("proyectos",["ngRoute"]);
 
 
