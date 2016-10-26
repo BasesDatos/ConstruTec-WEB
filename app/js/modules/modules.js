@@ -202,9 +202,23 @@ proyectoE.controller('nuevaEtapaController',function($scope,etapaInfo,nuevaEtapa
                     {pNombre:"Etapa2",pInicio:"10/11/15",pFin:"23/12/16"},
                     {pNombre:"Etapa3",pInicio:"10/11/15",pFin:"23/12/16"},
                     {pNombre:"Etapa4",pInicio:"10/11/15",pFin:"23/12/16"}];
-    
-    
-    $scope.getNP=function(){
-        $scope.usuario=nuevaEtapaInfo.mensaje;
-    }
+
 });
+
+proyectoE.controller('nuevoProyectoController',function($scope){
+    $scope.name = "";
+    $scope.ingenieros=[];
+    $scope.pNombre ="albin";
+    $scope.pProvincia ="albin";
+    $scope.pDistrito ="albin";
+    $scope.pCanton ="albin";
+    
+    ///$http.get($scope.IP.concat("users/all/2")).
+    //success(function(data){
+    //    $scope.ingenieros = [data];
+    //});
+    
+    $scope.ing ={id:-1,name:""};
+
+});
+
