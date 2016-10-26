@@ -119,11 +119,21 @@ proyectoE.factory('etapaInfo', function() {
 
 proyectoE.controller('proyectoController',function($scope,$http,etapaInfo){
     $scope.usuario=etapaInfo.mensaje;
-    $scope.lProyecto;
-    $http.get('http://172.26.105.42:9090/materials/getmaterials').
-                success(function(data) {
-                    $scope.lProyecto = data;
-                });
+    $scope.lProyecto= [
+        {pNombre:"San Jose",pEstado:"Activo",pCosto:"4444"},
+        {pNombre:"Heredia",pEstado:"Desactivado",pCosto:"4322342"},
+        {pNombre:"Azafran",pEstado:"Activo",pCosto:"23234"},
+        {pNombre:"Montiel",pEstado:"Concluido",pCosto:"34534535"},
+        {pNombre:"San Jose",pEstado:"Activo",pCosto:"4444"},
+        {pNombre:"Heredia",pEstado:"Desactivado",pCosto:"4322342"},
+        {pNombre:"Azafran",pEstado:"Activo",pCosto:"23234"},
+        {pNombre:"Montiel",pEstado:"Concluido",pCosto:"34534535"},
+        
+        {pNombre:"San Jose",pEstado:"Activo",pCosto:"4444"},
+        {pNombre:"Heredia",pEstado:"Desactivado",pCosto:"4322342"},
+        {pNombre:"Azafran",pEstado:"Activo",pCosto:"23234"},
+        {pNombre:"Montiel",pEstado:"Concluido",pCosto:"34534535"}
+    ];
     
     $scope.setNP=function(name){
         etapaInfo.mensaje=name;
