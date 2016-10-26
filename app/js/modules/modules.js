@@ -5,7 +5,7 @@ regUsers.controller('RegUserController',function($scope){
     $scope.tel="";
     $scope.contrasena="";
     $scope.cedula="";
-});
+})
 
 proyectoE.constant("miServicioIP","http://172.26.105.42:9090/");
 
@@ -101,10 +101,22 @@ proyectoE.controller("listaProductosController",function($scope,$http, miServici
             
         };
         
-});
+})
 
 
 proyectoE.factory('etapaInfo', function() {
+  return {
+    mensaje: '',
+    getValor: function() {
+      return this.mensaje;
+    },
+    setValor: function(msg) {
+      this.mensaje = msg;
+    }
+  };
+})
+
+proyectoE.factory('nuevaEtapaInfo', function() {
   return {
     mensaje: '',
     getValor: function() {
@@ -141,9 +153,9 @@ proyectoE.controller('proyectoController',function($scope,$http,etapaInfo){
         $scope.usuario=etapaInfo.mensaje;
     }
     
-});
+})
 
-proyectoE.controller('etapaController',function($scope,etapaInfo){
+proyectoE.controller('etapaController',function($scope,etapaInfo,nuevaEtapaInfo){
     $scope.usuario=etapaInfo.getValor();
     $scope.letapas= [{pNombre:"Etapa1",pInicio:"10/11/15",pFin:"23/12/16"},
                     {pNombre:"Etapa2",pInicio:"10/11/15",pFin:"23/12/16"},
@@ -151,5 +163,23 @@ proyectoE.controller('etapaController',function($scope,etapaInfo){
                     {pNombre:"Etapa4",pInicio:"10/11/15",pFin:"23/12/16"}];
     $scope.getNP=function(){
         $scope.usuario=etapaInfo.mensaje;
+    }
+    $scope.setNP=function(name){
+        nuevaEtapaInfo.mensaje=name;
+    }
+})
+
+proyectoE.controller('nuevaEtapaController',function($scope,etapaInfo,nuevaEtapaInfo){
+    $scope.varr = 0;
+    $scope.eNombre ="albin";
+    $scope.usuario=etapaInfo.getValor();
+    $scope.letapas= [{pNombre:"Etapa1",pInicio:"10/11/15",pFin:"23/12/16"},
+                    {pNombre:"Etapa2",pInicio:"10/11/15",pFin:"23/12/16"},
+                    {pNombre:"Etapa3",pInicio:"10/11/15",pFin:"23/12/16"},
+                    {pNombre:"Etapa4",pInicio:"10/11/15",pFin:"23/12/16"}];
+    
+    
+    $scope.getNP=function(){
+        $scope.usuario=nuevaEtapaInfo.mensaje;
     }
 });

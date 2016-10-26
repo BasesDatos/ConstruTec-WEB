@@ -14,10 +14,6 @@ proyectoE.config(['$routeProvider', function($routeProvider) {
                templateUrl: 'etapas.html',
                controller: 'etapaController'
             }).
-            when('/newEtapa', {
-               templateUrl: 'newEtapa.html',
-               controller: 'etapaController'
-            }).
             when('/products', {
                templateUrl: 'products.html',
                controller: 'listaProductosController'
