@@ -1,11 +1,36 @@
 regUsers.controller('RegUserController',function($scope){
-    $scope.nombre="weqr";
-    $scope.pApellido="hfahsdkfjhasdkfh";
+  
+
+    $scope.userName="";
+    $scope.nombreUsuario="";
+    $scope.nombre="";
+    $scope.pApellido="";
     $scope.sApellido="";
-    $scope.tel="";
-    $scope.contrasena="";
     $scope.cedula="";
-})
+    $scope.contrasena="";
+    $scope.tel="";
+    $scope.rol="";
+    
+
+    
+    
+    $scope.registrar=function(){
+        if ($scope.rol=="Usuario general"){
+            $scope.user={"_usuario": $scope.userName ,"_nombre": $scope.nombre,"_pApellido": $scope.pApellido,"_sApellido": $scope.sApellido,"_cedula": $scope.cedula,"_contrasena": $scope.contrasena,"_telefono": $scope.tel,"_rol": 1};
+        }else{
+            if($scope.rol=="Ingeniero"){
+            $scope.user={"_usuario": $scope.userName ,"_nombre": $scope.nombre,"_pApellido": $scope.pApellido,"_sApellido": $scope.sApellido,"_cedula": $scope.cedula,"_contrasena": $scope.contrasena,"_telefono": $scope.tel,"_rol": 2};
+            }else{
+                
+                $scope.user={"_usuario": $scope.userName ,"_nombre": $scope.nombre,"_pApellido": $scope.pApellido,"_sApellido": $scope.sApellido,"_cedula": $scope.cedula,"_contrasena": $scope.contrasena,"_telefono": $scope.tel,"_rol": 3};
+                
+            }
+        }
+        
+        
+        
+    }
+});
 
 proyectoE.constant("miServicioIP","http://172.26.105.42:9090/");
 
