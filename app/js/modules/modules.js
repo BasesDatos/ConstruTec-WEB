@@ -8,25 +8,43 @@ proyectoE.controller('RegUserController',function($scope){
     $scope.pApellido="";
     $scope.sApellido="";
     $scope.cedula="";
+    $scope.ingCode="";
     $scope.contrasena="";
     $scope.tel="";
     $scope.rol="";
-    
+    $scope.isRol=false;
 
     
-    
-    $scope.registrar=function(){
+    $scope.activacion=function(){
         if ($scope.rol=="Usuario general"){
-            $scope.user={"_usuario": $scope.userName ,"_nombre": $scope.nombre,"_pApellido": $scope.pApellido,"_sApellido": $scope.sApellido,"_cedula": $scope.cedula,"_contrasena": $scope.contrasena,"_telefono": $scope.tel,"_rol": 1};
+            $scope.isRol=false;
         }else{
             if($scope.rol=="Ingeniero"){
-            $scope.user={"_usuario": $scope.userName ,"_nombre": $scope.nombre,"_pApellido": $scope.pApellido,"_sApellido": $scope.sApellido,"_cedula": $scope.cedula,"_contrasena": $scope.contrasena,"_telefono": $scope.tel,"_rol": 2};
+                $scope.isRol=true;
             }else{
-                
-                $scope.user={"_usuario": $scope.userName ,"_nombre": $scope.nombre,"_pApellido": $scope.pApellido,"_sApellido": $scope.sApellido,"_cedula": $scope.cedula,"_contrasena": $scope.contrasena,"_telefono": $scope.tel,"_rol": 3};
+                $scope.isRol=false;
+            }
+        }
+        
+    }
+    $scope.registrar=function(){
+        if($scope.rol!=""){
+            if ($scope.rol=="Usuario general"){
+            $scope.ingCode="";
+            $scope.user={"_usuario": $scope.userName ,"_nombre": $scope.nombre,"_pApellido": $scope.pApellido,"_sApellido": $scope.sApellido,"_cedula": $scope.cedula,"_contrasena": $scope.contrasena,"_telefono": $scope.tel,"_rol": 1,"_codigo":$scope.ingCode};
+        }else{
+            if($scope.rol=="Ingeniero"){
+            $scope.user={"_usuario": $scope.userName ,"_nombre": $scope.nombre,"_pApellido": $scope.pApellido,"_sApellido": $scope.sApellido,"_cedula": $scope.cedula,"_contrasena": $scope.contrasena,"_telefono": $scope.tel,"_rol": 2,"_codigo":$scope.ingCode};
+            }else{
+                $scope.ingCode="";
+                $scope.user={"_usuario": $scope.userName ,"_nombre": $scope.nombre,"_pApellido": $scope.pApellido,"_sApellido": $scope.sApellido,"_cedula": $scope.cedula,"_contrasena": $scope.contrasena,"_telefono": $scope.tel,"_rol": 3,"_codigo":$scope.ingCode};
                 
             }
         }
+        }else{
+            console.log("");
+        }
+        
         
         
         
@@ -43,6 +61,7 @@ proyectoE.controller("loginUserController",function($scope){
         $http.post($scope.IP.concat("users/login"),$scope.inicioSesion).
         success(function(data){
             $scope.receiveMessage = data;
+            console.log(data);
             });
     }
 
