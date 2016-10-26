@@ -60,13 +60,15 @@
                                                                             <br>.</br>
                                                                             <label for="nombre">Digite el codigo del producto</label>
                                                                             <br>
-                                                                            <input id="name" class="form-control" name="nombre" type="text" ng-model="product.nombre" placeholder="Codigo del producto"/>
+                                                                            <input id="name" class="form-control alert-warning" name="nombre" type="text" ng-model="product.id" placeholder="Codigo del producto"/>
                                                                             <br/>
                                                                             <label for="cantidad">Digite la cantidad deseada</label><br/>
                                                                             <input id="cantidad" class="form-control" name="cantidad" type="number" ng-model="product.cantidad" placeholder="Cantidad de producto a adquirir"/>
                                                                             <br>.</br>
-                                                                            <input id="bntGuardar" class="form-control btn-danger" type="submit" ng-click="update()" value="Agregar" />
+                                                                            <input id="bntGuardar" class="form-control alert-info" type="submit" ng-click="update()" value="Agregar" />
                                                                             {{escogencia}}
+                                                                            <div class="alert alert-success" ng-show="correctoAlert">Producto {{product.id}} correctamente agregado</div>
+                                                                            <div class="alert alert-danger" ng-show="error1Alert">Error: Codigo no existente o la cantidad supera la cantidad de Stock</div>
                                                                 </form>
                                                                     
                                                         </div>
@@ -98,8 +100,10 @@
                                                                             <label for="cantidad">Digite la cantidad deseada</label><br/>
                                                                             <input id="cantidad" class="form-control" name="cantidad" type="number" ng-model="product.cantidad" placeholder="Cantidad de producto a adquirir"/>
                                                                             <br>.</br>
-                                                                            <input id="bntGuardar" class="form-control btn-danger" type="submit" ng-click="update()" value="Agregar" />
+                                                                            <input id="bntGuardar" class="form-control alert-info" type="submit" ng-click="update()" value="Agregar" />
                                                                             {{escogencia}}
+                                                                            <div class="alert alert-success" ng-show="correctoAlert">Producto {{product.id}} correctamente agregado</div>
+                                                                            <div class="alert alert-danger" ng-show="error1Alert">Error: Codigo no existente o la cantidad supera la cantidad de Stock</div>
                                                                 </form>
                                                                     
                                                         </div>
@@ -131,8 +135,10 @@
                                                                             <label for="cantidad">Digite la cantidad deseada</label><br/>
                                                                             <input id="cantidad" class="form-control" name="cantidad" type="number" ng-model="product.cantidad" placeholder="Cantidad de producto a adquirir"/>
                                                                             <br>.</br>
-                                                                            <input id="bntGuardar" class="form-control btn-danger" type="submit" ng-click="update()" value="Agregar" />
+                                                                            <input id="bntGuardar" class="form-control alert-info" type="submit" ng-click="update()" value="Agregar" />
                                                                             {{escogencia}}
+                                                                            <div class="alert alert-success" ng-show="correctoAlert">Producto {{product.id}} correctamente agregado</div>
+                                                                            <div class="alert alert-danger" ng-show="error1Alert">Error: Codigo no existente o la cantidad supera la cantidad de Stock</div>
                                                                 </form>
                                                                     
                                                         </div>
@@ -164,8 +170,10 @@
                                                                             <label for="cantidad">Digite la cantidad deseada</label><br/>
                                                                             <input id="cantidad" class="form-control" name="cantidad" type="number" ng-model="product.cantidad" placeholder="Cantidad de producto a adquirir"/>
                                                                             <br>.</br>
-                                                                            <input id="bntGuardar" class="form-control btn-danger" type="submit" ng-click="update()" value="Agregar" />
+                                                                            <input id="bntGuardar" class="form-control alert-info" type="submit" ng-click="update()" value="Agregar" />
                                                                             {{escogencia}}
+                                                                            <div class="alert alert-success" ng-show="correctoAlert">Producto {{product.id}} correctamente agregado</div>
+                                                                            <div class="alert alert-danger" ng-show="error1Alert">Error: Codigo no existente o la cantidad supera la cantidad de Stock</div>
                                                                 </form>
                                                                     
                                                         </div>
@@ -197,8 +205,10 @@
                                                                             <label for="cantidad">Digite la cantidad deseada</label><br/>
                                                                             <input id="cantidad" class="form-control" name="cantidad" type="number" ng-model="product.cantidad" placeholder="Cantidad de producto a adquirir"/>
                                                                             <br>.</br>
-                                                                            <input id="bntGuardar" class="form-control btn-danger" type="submit" ng-click="update()" value="Agregar" />
+                                                                            <input id="bntGuardar" class="form-control alert-info" type="submit" ng-click="update()" value="Agregar" />
                                                                             {{escogencia}}
+                                                                            <div class="alert alert-success" ng-show="correctoAlert">Producto {{product.id}} correctamente agregado</div>
+                                                                            <div class="alert alert-danger" ng-show="error1Alert">Error: Codigo no existente o la cantidad supera la cantidad de Stock</div>
                                                                 </form>
                                                                     
                                                         </div>
@@ -230,8 +240,10 @@
                                                                             <label for="cantidad">Digite la cantidad deseada</label><br/>
                                                                             <input id="cantidad" class="form-control" name="cantidad" type="number" ng-model="product.cantidad" placeholder="Cantidad de producto a adquirir"/>
                                                                             <br>.</br>
-                                                                            <input id="bntGuardar" class="form-control btn-danger" type="submit" ng-click="update()" value="Agregar" />
+                                                                            <input id="bntGuardar" class="form-control alert-info" type="submit" ng-click="update()" value="Agregar" />
                                                                             {{escogencia}}
+                                                                            <div class="alert alert-success" ng-show="correctoAlert">Producto {{product.id}} correctamente agregado</div>
+                                                                            <div class="alert alert-danger" ng-show="error1Alert">Error: Codigo no existente o la cantidad supera la cantidad de Stock</div>
                                                                 </form>
                                                                     
                                                         </div>
@@ -263,8 +275,10 @@
                                                                             <label for="cantidad">Digite la cantidad deseada</label><br/>
                                                                             <input id="cantidad" class="form-control" name="cantidad" type="number" ng-model="product.cantidad" placeholder="Cantidad de producto a adquirir"/>
                                                                             <br>.</br>
-                                                                            <input id="bntGuardar" class="form-control btn-danger" type="submit" ng-click="update()" value="Agregar" />
+                                                                            <input id="bntGuardar" class="form-control alert-info" type="submit" ng-click="update()" value="Agregar" />
                                                                             {{escogencia}}
+                                                                            <div class="alert alert-success" ng-show="correctoAlert">Producto {{product.id}} correctamente agregado</div>
+                                                                            <div class="alert alert-danger" ng-show="error1Alert">Error: Codigo no existente o la cantidad supera la cantidad de Stock</div>
                                                                 </form>
                                                                     
                                                         </div>
@@ -296,8 +310,10 @@
                                                                             <label for="cantidad">Digite la cantidad deseada</label><br/>
                                                                             <input id="cantidad" class="form-control" name="cantidad" type="number" ng-model="product.cantidad" placeholder="Cantidad de producto a adquirir"/>
                                                                             <br>.</br>
-                                                                            <input id="bntGuardar" class="form-control btn-danger" type="submit" ng-click="update()" value="Agregar" />
+                                                                            <input id="bntGuardar" class="form-control alert-info" type="submit" ng-click="update()" value="Agregar" />
                                                                             {{escogencia}}
+                                                                            <div class="alert alert-success" ng-show="correctoAlert">Producto {{product.id}} correctamente agregado</div>
+                                                                            <div class="alert alert-danger" ng-show="error1Alert">Error: Codigo no existente o la cantidad supera la cantidad de Stock</div>
                                                                 </form>
                                                                     
                                                         </div>
@@ -329,8 +345,10 @@
                                                                             <label for="cantidad">Digite la cantidad deseada</label><br/>
                                                                             <input id="cantidad" class="form-control" name="cantidad" type="number" ng-model="product.cantidad" placeholder="Cantidad de producto a adquirir"/>
                                                                             <br>.</br>
-                                                                            <input id="bntGuardar" class="form-control btn-danger" type="submit" ng-click="update()" value="Agregar" />
+                                                                            <input id="bntGuardar" class="form-control alert-info" type="submit" ng-click="update()" value="Agregar" />
                                                                             {{escogencia}}
+                                                                            <div class="alert alert-success" ng-show="correctoAlert">Producto {{product.id}} correctamente agregado</div>
+                                                                            <div class="alert alert-danger" ng-show="error1Alert">Error: Codigo no existente o la cantidad supera la cantidad de Stock</div>
                                                                 </form>
                                                                     
                                                         </div>
@@ -362,8 +380,10 @@
                                                                             <label for="cantidad">Digite la cantidad deseada</label><br/>
                                                                             <input id="cantidad" class="form-control" name="cantidad" type="number" ng-model="product.cantidad" placeholder="Cantidad de producto a adquirir"/>
                                                                             <br>.</br>
-                                                                            <input id="bntGuardar" class="form-control btn-danger" type="submit" ng-click="update()" value="Agregar" />
+                                                                            <input id="bntGuardar" class="form-control alert-info" type="submit" ng-click="update()" value="Agregar" />
                                                                             {{escogencia}}
+                                                                            <div class="alert alert-success" ng-show="correctoAlert">Producto {{product.id}} correctamente agregado</div>
+                                                                            <div class="alert alert-danger" ng-show="error1Alert">Error: Codigo no existente o la cantidad supera la cantidad de Stock</div>
                                                                 </form>
                                                                     
                                                         </div>
@@ -395,8 +415,10 @@
                                                                             <label for="cantidad">Digite la cantidad deseada</label><br/>
                                                                             <input id="cantidad" class="form-control" name="cantidad" type="number" ng-model="product.cantidad" placeholder="Cantidad de producto a adquirir"/>
                                                                             <br>.</br>
-                                                                            <input id="bntGuardar" class="form-control btn-danger" type="submit" ng-click="update()" value="Agregar" />
+                                                                            <input id="bntGuardar" class="form-control alert-info" type="submit" ng-click="update()" value="Agregar" />
                                                                             {{escogencia}}
+                                                                            <div class="alert alert-success" ng-show="correctoAlert">Producto {{product.id}} correctamente agregado</div>
+                                                                            <div class="alert alert-danger" ng-show="error1Alert">Error: Codigo no existente o la cantidad supera la cantidad de Stock</div>
                                                                 </form>
                                                                     
                                                         </div>
@@ -427,8 +449,10 @@
                                                                             <label for="cantidad">Digite la cantidad deseada</label><br/>
                                                                             <input id="cantidad" class="form-control" name="cantidad" type="number" ng-model="product.cantidad" placeholder="Cantidad de producto a adquirir"/>
                                                                             <br>.</br>
-                                                                            <input id="bntGuardar" class="form-control btn-danger" type="submit" ng-click="update()" value="Agregar" />
+                                                                            <input id="bntGuardar" class="form-control alert-info" type="submit" ng-click="update()" value="Agregar" />
                                                                             {{escogencia}}
+                                                                            <div class="alert alert-success" ng-show="correctoAlert">Producto {{product.id}} correctamente agregado</div>
+                                                                            <div class="alert alert-danger" ng-show="error1Alert">Error: Codigo no existente o la cantidad supera la cantidad de Stock</div>
                                                                 </form>
                                                                     
                                                   </div>
