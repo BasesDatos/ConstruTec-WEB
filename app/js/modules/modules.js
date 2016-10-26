@@ -1,4 +1,5 @@
-regUsers.controller('RegUserController',function($scope){
+proyectoE.constant("miServicioIP","http://172.26.105.42:9090/");
+proyectoE.controller('RegUserController',function($scope){
   
 
     $scope.userName="";
@@ -32,7 +33,7 @@ regUsers.controller('RegUserController',function($scope){
     }
 });
 
-proyectoE.constant("miServicioIP","http://172.26.105.42:9090/");
+
 
 proyectoE.controller("listaProductosController",function($scope,$http, miServicioIP){
     
