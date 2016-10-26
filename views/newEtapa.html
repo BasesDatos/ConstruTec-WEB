@@ -36,28 +36,6 @@
                                         </div>
                                     </div>
                                     <div class = "form-group">
-                                        <div class="row">
-                                                <div class = "col-sm-4"></div>
-                                                <div class = "col-sm-5">
-                                                    <div class="input-group">
-                                                        <span class="input-group-addon"><span class="glyphicon glyphicon-usd" style="color:46C6E6"></span></span>
-                                                        <input type="text" class="form-control" placeholder="Costo" ng-model="eCosto" required>
-                                                    </div>
-                                                </div>
-                                        </div>
-                                    </div>
-                                    <div class = "form-group">
-                                        <div class="row">
-                                                <div class = "col-sm-4"></div>
-                                                <div class = "col-sm-5">
-                                                    <div class="input-group">
-                                                        <span class="input-group-addon"><span class="glyphicon glyphicon-info-sign" style="color:46C6E6"></span></span>
-                                                        <input type="text" class="form-control" placeholder="Estado" ng-model="eEstado" required>
-                                                    </div>
-                                                </div>
-                                        </div>
-                                    </div>
-                                    <div class = "form-group">
                                         
                                         <div class="row">
                                                 <div class = "col-sm-4"></div>
@@ -100,6 +78,45 @@
                                         </div>
                                     </div>
                                 </form>
+                                
+                                <from>
+                                    <div class="btn-group">
+                                      <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">
+                                        Título del botón <span class="caret"></span>
+                                      </button>
+
+                                      <ul class="dropdown-menu" role="menu" >
+                                        <li ng.repeat='e in letapas'><a>{{e.pNombre}}</a></li>
+                                        <li class="divider"></li>
+                                        <li><a href="#">Otros #4</a></li>
+                                      </ul>
+                                        <table class = "table table-borderless table-condensed table-hover">
+                                                <caption>Proyecto: {{usuario}}</caption>
+                                                   <thead>
+                                                      <tr>
+                                                          <th><p style="color:#46C6E6">ETAPA</p></th>
+                                                          <th><p style="color:#46C6E6">INICIO</p></th>
+                                                          <th><p style="color:#46C6E6">FINAL</p></th>
+                                                          <th><center><p style="color:#46C6E6">MATERIALES</p></center></th>
+                                                      </tr>
+                                                   </thead>
+
+                                                   <tbody>
+                                                      <tr ng-repeat="n in letapas">
+                                                        <td><a ng-click="getNP()">{{n.pNombre}}</a></td>
+                                                        <td>{{n.pInicio}}</td>
+                                                        <td>{{n.pFin}}</td>
+                                                        <td>
+                                                              <center><a href="#products"><IMG SRC="../resource/nuevo.png" ALT="Agregar Material a Etapa"></IMG></a></center>
+                                                        </td>
+
+                                                      </tr>
+                                                   </tbody>
+
+                                            </table>    
+                                    </div>
+                                </from>
+                                
                             </div>
                         </div>
 
