@@ -33,6 +33,21 @@ proyectoE.controller('RegUserController',function($scope){
     }
 });
 
+proyectoE.controller("loginUserController",function($scope){
+    $scope.userName="";
+    $scope.contrasena="";
+    
+    $scope.update=function(){
+        $scope.inicioSesion={"_usuario":$scope.userName,"_contrasena":$scope.contrasena};
+        
+        $http.post($scope.IP.concat("users/login"),$scope.inicioSesion).
+        success(function(data){
+            $scope.receiveMessage = data;
+            });
+    }
+
+});
+
 
 
 proyectoE.controller("listaProductosController",function($scope,$http, miServicioIP){
