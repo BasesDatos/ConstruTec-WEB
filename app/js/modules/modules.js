@@ -278,9 +278,10 @@ proyectoE.controller('etapaController',function($scope,$http,etapaInfo,miServici
 })
 
 proyectoE.controller('nuevaEtapaController',function($scope,etapaInfo){
-    $scope.varr = 0;
     $scope.eNombre ="albin";
-    $scope.usuario=etapaInfo.getNombre();
+    $scope.eDescripcion ="";
+    $scope.eFInicio ="";
+    $scope.eFFinal="";
     
     
     $scope.letapas= [{pNombre:"Etapa1",pInicio:"10/11/15",pFin:"23/12/16"},
@@ -308,20 +309,48 @@ proyectoE.controller('dataEtapaController',function($scope,MeInfo,$http,miServic
 
 });
 
-proyectoE.controller('nuevoProyectoController',function($scope){
+proyectoE.controller('nuevoProyectoController',function($scope,$http,miServicioIP,USER){
     $scope.name = "";
     $scope.ingenieros=[];
-    $scope.pNombre ="albin";
-    $scope.pProvincia ="albin";
-    $scope.pDistrito ="albin";
-    $scope.pCanton ="albin";
+    $scope.pNombre ="";
+    $scope.pProvincia ="";
+    $scope.pDistrito ="";
+    $scope.pCanton ="";
     
-    ///$http.get($scope.IP.concat("users/all/2")).
-    //success(function(data){
-    //    $scope.ingenieros = [data];
-    //});
     
-    $scope.ing ={id:-1,name:""};
+    $scope.dirPos=miServicioIP.ip + "projects/register";
+    $scope.dirGet=miServicioIP.ip + "users/all/2";
+    
+    $scope.ing ={_codigo:-1,_nombre:""};
+    
+    $('#newProyectos').on('shown.bs.modal', function() {$scope.pNombre ="";
+            $scope.pProvincia ="";
+            $scope.pDistrito ="";
+            $scope.pCanton ="";
+            $scope.pNombre ="";
+            $scope.pProvincia ="";
+            $scope.pDistrito ="";
+            $scope.pCanton ="";
+            $http.get($scope.dirGet ).
+                success(function(data){
+                    $scope.ingenieros = data;
+                    console.log(data);
+                });
+            });
+    
+    
+    
+    
+    $scope.posProyecto=function(nombre,id){
+        $scope.send= {"_nombre":$scope.pNombre,"_provincia":$scope.pProvincia,"_canton":$scope.pCanton,"_distrito":$scope.pDistrito,"_cliente":USER.user,"_ingeniero":$scope.ing._usuario}
+        $http.post($scope.dirPos,$scope.send).
+        success(function(data){
+            $scope.receiveMessage = data;
+            console.log(data);
+    });
+        
+       
+    }
 
 });
 
