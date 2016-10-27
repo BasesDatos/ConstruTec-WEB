@@ -23,9 +23,9 @@
 
                                <tbody>
                                   <tr ng-repeat="n in letapas">
-                                      <td><a ng-click="getNP()">{{n.pNombre}}</a></td>
-                                     <td>{{n.pInicio}}</td>
-                                     <td>{{n.pFin}}</td>
+                                      <td><a ng-click="getNP()" data-toggle="modal" data-target="#etapaInfo">{{n._nombre}}</a></td>
+                                     <td>{{n._fInicio}}</td>
+                                     <td>{{n._fFin}}</td>
                                       <td>
                                           <center><a href="#products"><IMG SRC="../resource/nuevo.png" ALT="Agregar Material a Etapa"></IMG></a></center>
                                       </td>

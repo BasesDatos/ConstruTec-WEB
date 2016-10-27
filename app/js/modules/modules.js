@@ -1,7 +1,13 @@
-proyectoE.constant("miServicioIP","http://172.26.105.42:9090/");
-proyectoE.controller('RegUserController',function($scope){
-  
+proyectoE.constant("miServicioIP",{"ip": "http://172.26.106.210:9090/"});
 
+proyectoE.controller('Bar',function($scope,USER){
+    $scope.user="";
+    if(USER.getValor!=''){
+        $scope.user=USER.getValor();
+    }
+
+});
+proyectoE.controller('RegUserController',function($scope){
     $scope.userName="";
     $scope.nombreUsuario="";
     $scope.nombre="";
@@ -44,25 +50,38 @@ proyectoE.controller('RegUserController',function($scope){
         }else{
             console.log("");
         }
-        
-        
-        
+        $http.post($scope.IP.concat("users/register"),$scope.user).
+        success(function(data){
+            $scope.receiveMessage = data;
+            console.log(data);
+    });
         
     }
 });
 
-proyectoE.controller("loginUserController",function($scope){
+proyectoE.controller("loginUserController",function($scope,$http,miServicioIP,USER){
+    $scope.successA=false;
+    $scope.errorA=false;
     $scope.userName="";
     $scope.contrasena="";
     
     $scope.update=function(){
+        $scope.successA=false;
+        $scope.errorA=false;
         $scope.inicioSesion={"_usuario":$scope.userName,"_contrasena":$scope.contrasena};
         
-        $http.post($scope.IP.concat("users/login"),$scope.inicioSesion).
+        $scope.dir=miServicioIP.ip+"users/login";
+        $http.post($scope.dir,$scope.inicioSesion).
         success(function(data){
             $scope.receiveMessage = data;
-            console.log(data);
-            });
+            if($scope.receiveMessage != 1 && $scope.receiveMessage !=2){
+                $scope.successA=true;
+                USER.setValor($scope.userName)
+            }
+            else{
+                $scope.errorA=true;
+            }
+         });  
     }
 
 });
@@ -176,36 +195,48 @@ proyectoE.factory('etapaInfo', function() {
   };
 })
 
-proyectoE.factory('nuevaEtapaInfo', function() {
+proyectoE.factory('MeInfo', function() {
   return {
-    mensaje: '',
+    nombre: '',
+    id:0,
     getValor: function() {
-      return this.mensaje;
+      return {this.nombre,this.id};
+    },
+    setValor: function(nombre,id) {
+      this.nombre = nombre;
+      this.id = id;
+        
+    }
+  };
+})
+
+proyectoE.factory('USER', function() {
+  return {
+    user: '',
+    getValor: function() {
+      return this.user;
     },
     setValor: function(msg) {
-      this.mensaje = msg;
+      this.user = msg;
     }
   };
 })
 
 
-proyectoE.controller('proyectoController',function($scope,$http,etapaInfo){
+proyectoE.controller('proyectoController',function($scope,$http,etapaInfo,miServicioIP,USER){
     $scope.usuario=etapaInfo.mensaje;
-    $scope.lProyecto= [
-        {pNombre:"San Jose",pEstado:"Activo",pCosto:"4444"},
-        {pNombre:"Heredia",pEstado:"Desactivado",pCosto:"4322342"},
-        {pNombre:"Azafran",pEstado:"Activo",pCosto:"23234"},
-        {pNombre:"Montiel",pEstado:"Concluido",pCosto:"34534535"},
-        {pNombre:"San Jose",pEstado:"Activo",pCosto:"4444"},
-        {pNombre:"Heredia",pEstado:"Desactivado",pCosto:"4322342"},
-        {pNombre:"Azafran",pEstado:"Activo",pCosto:"23234"},
-        {pNombre:"Montiel",pEstado:"Concluido",pCosto:"34534535"},
-        
-        {pNombre:"San Jose",pEstado:"Activo",pCosto:"4444"},
-        {pNombre:"Heredia",pEstado:"Desactivado",pCosto:"4322342"},
-        {pNombre:"Azafran",pEstado:"Activo",pCosto:"23234"},
-        {pNombre:"Montiel",pEstado:"Concluido",pCosto:"34534535"}
-    ];
+    $scope.lProyecto=[];
+    
+    $scope.dir=miServicioIP.ip +"users/getProjects?pUser="+USER.getValor();
+    console.log($scope.dir);
+    if(USER.getValor()!=''){
+        $http.get($scope.dir).
+        success(function(data){
+        $scope.lProyecto = data;
+        console.log(data);
+    });
+    }
+    
     
     $scope.setNP=function(name){
         etapaInfo.mensaje=name;
@@ -213,19 +244,28 @@ proyectoE.controller('proyectoController',function($scope,$http,etapaInfo){
         $scope.usuario=etapaInfo.mensaje;
     }
     
-})
+});
 
-proyectoE.controller('etapaController',function($scope,etapaInfo,nuevaEtapaInfo){
+proyectoE.controller('etapaController',function($scope,$http,etapaInfo,nuevaEtapaInfo,miServicioIP,MeInfo){
     $scope.usuario=etapaInfo.getValor();
-    $scope.letapas= [{pNombre:"Etapa1",pInicio:"10/11/15",pFin:"23/12/16"},
-                    {pNombre:"Etapa2",pInicio:"10/11/15",pFin:"23/12/16"},
-                    {pNombre:"Etapa3",pInicio:"10/11/15",pFin:"23/12/16"},
-                    {pNombre:"Etapa4",pInicio:"10/11/15",pFin:"23/12/16"}];
+    $scope.letapas=[];
+    
+    $scope.dir=miServicioIP.ip +"projects/getStagesProjects/"+$scope.usuario;
+    $http.get($scope.dir).
+    success(function(data){
+        $scope.letapas = data;
+        console.log(data);
+    });
+    
     $scope.getNP=function(){
         $scope.usuario=etapaInfo.mensaje;
     }
     $scope.setNP=function(name){
         nuevaEtapaInfo.mensaje=name;
+    }
+    $scope.setEtapaMate=function(name,id){
+        MeInfo.nombre=name;
+        MeInfo.id=id;
     }
 })
 
@@ -233,10 +273,28 @@ proyectoE.controller('nuevaEtapaController',function($scope,etapaInfo,nuevaEtapa
     $scope.varr = 0;
     $scope.eNombre ="albin";
     $scope.usuario=etapaInfo.getValor();
+    
+    
     $scope.letapas= [{pNombre:"Etapa1",pInicio:"10/11/15",pFin:"23/12/16"},
                     {pNombre:"Etapa2",pInicio:"10/11/15",pFin:"23/12/16"},
                     {pNombre:"Etapa3",pInicio:"10/11/15",pFin:"23/12/16"},
                     {pNombre:"Etapa4",pInicio:"10/11/15",pFin:"23/12/16"}];
+
+});
+
+proyectoE.controller('dataEtapaController',function($scope,MeInfo){
+    $scope.varr = 0;
+    
+    $scope.etapaNombre=MeInfo.getValor().nombre;
+    $scope.id=MeInfo.getValor().id;
+    
+    $scope.dir=miServicioIP.ip +"stages/getMaterialsStage/"+$scope.id;
+    
+    $http.get($scope.dir).
+    success(function(data){
+        $scope.letapas = data;
+        console.log(data);
+    });
 
 });
 
