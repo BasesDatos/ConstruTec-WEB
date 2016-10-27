@@ -1,3 +1,85 @@
-<form class="form-horizontal" role="form" style="background:url('../resource/fondo.jpg')">
-    hola  
+<form class="form-horizontal" role="form">
+    <div id= "id_About" class="jumbotron text-center">
+            <p> </p>
+            <h1>Constru-TEC</h1> 
+            <p>Construye tu proyecto con nuestra ayuda, crea tus etapas y selecciona los mejores productos para cada una de ellas.</p>
+            <p>Inscribete, este es un servicio Gratuito!!</p>
+            <p> </p>
+    </div>
+    
+    <!-- Contenedor para galeria. -->
+    <div class="carousel slide" id="id_Galeria" data-ride="carousel">
+    	<!-- Indicadores -->
+    	<ol class="carousel-indicators">
+        	<li class="active" data-target="#id_Galeria" data-slide-to="0"></li>
+            <li data-target="#id_Galeria" data-slide-to="1"></li>
+            <li data-target="#id_Galeria" data-slide-to="2"></li>
+            <li data-target="#id_Galeria" data-slide-to="3"></li>
+        </ol>
+        <!-- Contenedor interior -->
+        <div class="carousel-inner" role="listbox">
+        	<div class="item active">
+            	<img src="../resource/uno.png" alt="Image0">
+            	<div class="carousel-caption">
+                	<h2></h2>
+                </div>
+            </div>
+            <div class="item">
+            	<img src="../resource/dos.png" alt="Image1">
+            	<div class="carousel-caption">
+                	<h2></h2>
+                </div>
+            </div>
+            <div class="item">
+            	<img src="../resource/tres.png" alt="Image2">
+            	<div class="carousel-caption">
+                	<h3>Lo mejer en kits de herramientas.</h3>
+                </div>
+            </div>
+            <div class="item">
+            	<img src="../resource/cuatro.png" alt="Image3">
+            	<div class="carousel-caption">
+                	<h3>La mejor opcion para construir y cotizar sus proyectos.</h3>
+                </div>
+            </div>
+        </div>
+        <a class="left carousel-control" href="#id_Galeria" role="button" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+          <span class="sr-only">Anterior</span>
+        </a>
+        <a class="right carousel-control" href="#id_Galeria" role="button" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+          <span class="sr-only">Siguiente</span>
+        </a>
+        
+    </div>
 </form>
+<!-- Contenedor de contacto -->
+<div id="id_Contact" class="container-fluid">
+        <h1>Contactenos</h1>
+
+        <div class="row">
+                <div class="col-sm-5">
+                        <p> Contactenos por em@il, telefono, por nuestro sitio web o visite nuestras sucursales</p>
+                        <p><span class="glyphicon glyphicon-map-marker"></span> Cartago, CR</p>
+                        <p><span class="glyphicon glyphicon-earphone"></span> Tel: +506 27705192</p>
+                        <p><span class="glyphicon glyphicon-envelope"></span> Em@il: epatec@tec.ac.cr</p>
+                </div>
+                <div class="col-sm-7">
+                        <div class="row">
+                            <div class="col-sm-6 form-group">
+                                <input class="form-control" id="id_nombre_consultante" name="nombre" placeholder="Nombre" type="text" required>
+                            </div>
+                            <div class="col-sm-6 form-group">
+                                <input class="form-control" id="id_email" name="email" placeholder="Email" type="Email" required>
+                            </div>
+                        </div>
+                        <textarea class="form-control" id="id_comentarios" name="comentarios" placeholder="Comentarios" rows="5"></textarea><br>
+                        <div class="row">
+                            <div class="col-sm-12 form-group">
+                                <button class="btn btn-default pull-right" type="submit">Enviar</button>
+                            </div>
+                        </div> 
+                </div>
+        </div>
+</div>
