@@ -49,11 +49,11 @@
                                                                 <div id="col{{p.id}}" class="col-sm-6 text-center " ng-repeat="p in lProducts | filter: { categoria: 'Trabajo Preliminar' }" table-hover>
                                                                         <h1></h1>
                                                                         <IMG src="http://vignette3.wikia.nocookie.net/monsterhunterespanol/images/a/aa/Imagen-no-disponible-282x300.png/revision/latest?cb=20140827124248&path-prefix=es" ALT="Bontón Editar" height="210" width="210">
-                                                                        <h3 ng-model="product.name"><strong>Articulo: {{ p.name }}</strong></h3>
-                                                                        <h4><strong>Codigo: {{ p.id }}</strong></h4>
-                                                                        <h5><strong>Cant. Disponible: {{ p.stock }}</strong></h5>
-                                                                        <h5>Categoria: {{ p.categoria }}</h5>
-                                                                        <h5>Precio: {{ p.precio }}</h5>
+                                                                        <h3 ng-model="product.name"><strong>Articulo: {{ p._nombre }}</strong></h3>
+                                                                        <h4><strong>Codigo: {{ p._id }}</strong></h4>
+                                                                        <h5><strong>Cant. Disponible: {{ p._cantidadDisponible }}</strong></h5>
+                                                                        <h5>Categoria: {{ p._nombreCategoria}}</h5>
+                                                                        <h5>Precio: {{ p._precio }}</h5>
                                                                         <h5>------------------------------------------------------------</h5>
                                                                 </div>
                                                                 <form name="userForm" novalidate>
@@ -84,11 +84,11 @@
                                                                 <div id="col{{p.id}}" class="col-sm-6 text-center " ng-repeat="p in lProducts | filter: { categoria: 'Cimientos' }" table-hover>
                                                                         <h1></h1>
                                                                         <IMG src="http://vignette3.wikia.nocookie.net/monsterhunterespanol/images/a/aa/Imagen-no-disponible-282x300.png/revision/latest?cb=20140827124248&path-prefix=es" ALT="Bontón Editar" height="210" width="210">
-                                                                        <h3 ng-model="product.name"><strong>Articulo: {{ p.name }}</strong></h3>
-                                                                        <h4><strong>Codigo: {{ p.id }}</strong></h4>
-                                                                        <h5><strong>Cant. Disponible: {{ p.stock }}</strong></h5>
-                                                                        <h5>Categoria: {{ p.categoria }}</h5>
-                                                                        <h5>Precio: {{ p.precio }}</h5>
+                                                                        <h3 ng-model="product.name"><strong>Articulo: {{ p._nombre }}</strong></h3>
+                                                                        <h4><strong>Codigo: {{ p._id }}</strong></h4>
+                                                                        <h5><strong>Cant. Disponible: {{ p._cantidadDisponible }}</strong></h5>
+                                                                        <h5>Categoria: {{ p._nombreCategoria}}</h5>
+                                                                        <h5>Precio: {{ p._precio }}</h5>
                                                                         <h5>------------------------------------------------------------</h5>
                                                                 </div>
                                                                 <form name="userForm" novalidate>
@@ -119,11 +119,11 @@
                                                                 <div id="col{{p.id}}" class="col-sm-6 text-center " ng-repeat="p in lProducts | filter: { categoria: 'Paredes' }" table-hover>
                                                                         <h1></h1>
                                                                         <IMG src="http://vignette3.wikia.nocookie.net/monsterhunterespanol/images/a/aa/Imagen-no-disponible-282x300.png/revision/latest?cb=20140827124248&path-prefix=es" ALT="Bontón Editar" height="210" width="210">
-                                                                        <h3 ng-model="product.name"><strong>Articulo: {{ p.name }}</strong></h3>
-                                                                        <h4><strong>Codigo: {{ p.id }}</strong></h4>
-                                                                        <h5><strong>Cant. Disponible: {{ p.stock }}</strong></h5>
-                                                                        <h5>Categoria: {{ p.categoria }}</h5>
-                                                                        <h5>Precio: {{ p.precio }}</h5>
+                                                                        <h3 ng-model="product.name"><strong>Articulo: {{ p._nombre }}</strong></h3>
+                                                                        <h4><strong>Codigo: {{ p._id }}</strong></h4>
+                                                                        <h5><strong>Cant. Disponible: {{ p._cantidadDisponible }}</strong></h5>
+                                                                        <h5>Categoria: {{ p._nombreCategoria}}</h5>
+                                                                        <h5>Precio: {{ p._precio }}</h5>
                                                                         <h5>------------------------------------------------------------</h5>
                                                                 </div>
                                                                 <form name="userForm" novalidate>
@@ -154,11 +154,11 @@
                                                                 <div id="col{{p.id}}" class="col-sm-6 text-center " ng-repeat="p in lProducts | filter: { categoria: 'Techos' }" table-hover>
                                                                         <h1></h1>
                                                                         <IMG src="http://vignette3.wikia.nocookie.net/monsterhunterespanol/images/a/aa/Imagen-no-disponible-282x300.png/revision/latest?cb=20140827124248&path-prefix=es" ALT="Bontón Editar" height="210" width="210">
-                                                                        <h3 ng-model="product.name"><strong>Articulo: {{ p.name }}</strong></h3>
-                                                                        <h4><strong>Codigo: {{ p.id }}</strong></h4>
-                                                                        <h5><strong>Cant. Disponible: {{ p.stock }}</strong></h5>
-                                                                        <h5>Categoria: {{ p.categoria }}</h5>
-                                                                        <h5>Precio: {{ p.precio }}</h5>
+                                                                        <h3 ng-model="product.name"><strong>Articulo: {{ p._nombre }}</strong></h3>
+                                                                        <h4><strong>Codigo: {{ p._id }}</strong></h4>
+                                                                        <h5><strong>Cant. Disponible: {{ p._cantidadDisponible }}</strong></h5>
+                                                                        <h5>Categoria: {{ p._nombreCategoria}}</h5>
+                                                                        <h5>Precio: {{ p._precio }}</h5>
                                                                         <h5>------------------------------------------------------------</h5>
                                                                 </div>
                                                                 <form name="userForm" novalidate>
@@ -189,11 +189,11 @@
                                                                 <div id="col{{p.id}}" class="col-sm-6 text-center " ng-repeat="p in lProducts | filter: { categoria: 'Pisos' }" table-hover>
                                                                         <h1></h1>
                                                                         <IMG src="http://vignette3.wikia.nocookie.net/monsterhunterespanol/images/a/aa/Imagen-no-disponible-282x300.png/revision/latest?cb=20140827124248&path-prefix=es" ALT="Bontón Editar" height="210" width="210">
-                                                                        <h3 ng-model="product.name"><strong>Articulo: {{ p.name }}</strong></h3>
-                                                                        <h4><strong>Codigo: {{ p.id }}</strong></h4>
-                                                                        <h5><strong>Cant. Disponible: {{ p.stock }}</strong></h5>
-                                                                        <h5>Categoria: {{ p.categoria }}</h5>
-                                                                        <h5>Precio: {{ p.precio }}</h5>
+                                                                        <h3 ng-model="product.name"><strong>Articulo: {{ p._nombre }}</strong></h3>
+                                                                        <h4><strong>Codigo: {{ p._id }}</strong></h4>
+                                                                        <h5><strong>Cant. Disponible: {{ p._cantidadDisponible }}</strong></h5>
+                                                                        <h5>Categoria: {{ p._nombreCategoria}}</h5>
+                                                                        <h5>Precio: {{ p._precio }}</h5>
                                                                         <h5>------------------------------------------------------------</h5>
                                                                 </div>
                                                                 <form name="userForm" novalidate>
@@ -224,11 +224,11 @@
                                                                 <div id="col{{p.id}}" class="col-sm-6 text-center " ng-repeat="p in lProducts | filter: { categoria: 'Instalacion Pluvial' }" table-hover>
                                                                         <h1></h1>
                                                                         <IMG src="http://vignette3.wikia.nocookie.net/monsterhunterespanol/images/a/aa/Imagen-no-disponible-282x300.png/revision/latest?cb=20140827124248&path-prefix=es" ALT="Bontón Editar" height="210" width="210">
-                                                                        <h3 ng-model="product.name"><strong>Articulo: {{ p.name }}</strong></h3>
-                                                                        <h4><strong>Codigo: {{ p.id }}</strong></h4>
-                                                                        <h5><strong>Cant. Disponible: {{ p.stock }}</strong></h5>
-                                                                        <h5>Categoria: {{ p.categoria }}</h5>
-                                                                        <h5>Precio: {{ p.precio }}</h5>
+                                                                        <h3 ng-model="product.name"><strong>Articulo: {{ p._nombre }}</strong></h3>
+                                                                        <h4><strong>Codigo: {{ p._id }}</strong></h4>
+                                                                        <h5><strong>Cant. Disponible: {{ p._cantidadDisponible }}</strong></h5>
+                                                                        <h5>Categoria: {{ p._nombreCategoria}}</h5>
+                                                                        <h5>Precio: {{ p._precio }}</h5>
                                                                         <h5>------------------------------------------------------------</h5>
                                                                 </div>
                                                                 <form name="userForm" novalidate>
@@ -259,11 +259,11 @@
                                                                 <div id="col{{p.id}}" class="col-sm-6 text-center " ng-repeat="p in lProducts | filter: { categoria: 'Instalacion Sanitaria' }" table-hover>
                                                                         <h1></h1>
                                                                         <IMG src="http://vignette3.wikia.nocookie.net/monsterhunterespanol/images/a/aa/Imagen-no-disponible-282x300.png/revision/latest?cb=20140827124248&path-prefix=es" ALT="Bontón Editar" height="210" width="210">
-                                                                        <h3 ng-model="product.name"><strong>Articulo: {{ p.name }}</strong></h3>
-                                                                        <h4><strong>Codigo: {{ p.id }}</strong></h4>
-                                                                        <h5><strong>Cant. Disponible: {{ p.stock }}</strong></h5>
-                                                                        <h5>Categoria: {{ p.categoria }}</h5>
-                                                                        <h5>Precio: {{ p.precio }}</h5>
+                                                                        <h3 ng-model="product.name"><strong>Articulo: {{ p._nombre }}</strong></h3>
+                                                                        <h4><strong>Codigo: {{ p._id }}</strong></h4>
+                                                                        <h5><strong>Cant. Disponible: {{ p._cantidadDisponible }}</strong></h5>
+                                                                        <h5>Categoria: {{ p._nombreCategoria}}</h5>
+                                                                        <h5>Precio: {{ p._precio }}</h5>
                                                                         <h5>------------------------------------------------------------</h5>
                                                                 </div>
                                                                 <form name="userForm" novalidate>
@@ -294,11 +294,11 @@
                                                                 <div id="col{{p.id}}" class="col-sm-6 text-center " ng-repeat="p in lProducts | filter: { categoria: 'Instalacion Electrica' }" table-hover>
                                                                         <h1></h1>
                                                                         <IMG src="http://vignette3.wikia.nocookie.net/monsterhunterespanol/images/a/aa/Imagen-no-disponible-282x300.png/revision/latest?cb=20140827124248&path-prefix=es" ALT="Bontón Editar" height="210" width="210">
-                                                                        <h3 ng-model="product.name"><strong>Articulo: {{ p.name }}</strong></h3>
-                                                                        <h4><strong>Codigo: {{ p.id }}</strong></h4>
-                                                                        <h5><strong>Cant. Disponible: {{ p.stock }}</strong></h5>
-                                                                        <h5>Categoria: {{ p.categoria }}</h5>
-                                                                        <h5>Precio: {{ p.precio }}</h5>
+                                                                        <h3 ng-model="product.name"><strong>Articulo: {{ p._nombre }}</strong></h3>
+                                                                        <h4><strong>Codigo: {{ p._id }}</strong></h4>
+                                                                        <h5><strong>Cant. Disponible: {{ p._cantidadDisponible }}</strong></h5>
+                                                                        <h5>Categoria: {{ p._nombreCategoria}}</h5>
+                                                                        <h5>Precio: {{ p._precio }}</h5>
                                                                         <h5>------------------------------------------------------------</h5>
                                                                 </div>
                                                                 <form name="userForm" novalidate>
@@ -329,11 +329,11 @@
                                                                 <div id="col{{p.id}}" class="col-sm-6 text-center " ng-repeat="p in lProducts | filter: { categoria: 'Puertas' }" table-hover>
                                                                         <h1></h1>
                                                                         <IMG src="http://vignette3.wikia.nocookie.net/monsterhunterespanol/images/a/aa/Imagen-no-disponible-282x300.png/revision/latest?cb=20140827124248&path-prefix=es" ALT="Bontón Editar" height="210" width="210">
-                                                                        <h3 ng-model="product.name"><strong>Articulo: {{ p.name }}</strong></h3>
-                                                                        <h4><strong>Codigo: {{ p.id }}</strong></h4>
-                                                                        <h5><strong>Cant. Disponible: {{ p.stock }}</strong></h5>
-                                                                        <h5>Categoria: {{ p.categoria }}</h5>
-                                                                        <h5>Precio: {{ p.precio }}</h5>
+                                                                        <h3 ng-model="product.name"><strong>Articulo: {{ p._nombre }}</strong></h3>
+                                                                        <h4><strong>Codigo: {{ p._id }}</strong></h4>
+                                                                        <h5><strong>Cant. Disponible: {{ p._cantidadDisponible }}</strong></h5>
+                                                                        <h5>Categoria: {{ p._nombreCategoria}}</h5>
+                                                                        <h5>Precio: {{ p._precio }}</h5>
                                                                         <h5>------------------------------------------------------------</h5>
                                                                 </div>
                                                                 <form name="userForm" novalidate>
@@ -364,11 +364,11 @@
                                                                 <div id="col{{p.id}}" class="col-sm-6 text-center " ng-repeat="p in lProducts | filter: { categoria: 'Ventanas' }" table-hover>
                                                                         <h1></h1>
                                                                         <IMG src="http://vignette3.wikia.nocookie.net/monsterhunterespanol/images/a/aa/Imagen-no-disponible-282x300.png/revision/latest?cb=20140827124248&path-prefix=es" ALT="Bontón Editar" height="210" width="210">
-                                                                        <h3 ng-model="product.name"><strong>Articulo: {{ p.name }}</strong></h3>
-                                                                        <h4><strong>Codigo: {{ p.id }}</strong></h4>
-                                                                        <h5><strong>Cant. Disponible: {{ p.stock }}</strong></h5>
-                                                                        <h5>Categoria: {{ p.categoria }}</h5>
-                                                                        <h5>Precio: {{ p.precio }}</h5>
+                                                                        <h3 ng-model="product.name"><strong>Articulo: {{ p._nombre }}</strong></h3>
+                                                                        <h4><strong>Codigo: {{ p._id }}</strong></h4>
+                                                                        <h5><strong>Cant. Disponible: {{ p._cantidadDisponible }}</strong></h5>
+                                                                        <h5>Categoria: {{ p._nombreCategoria}}</h5>
+                                                                        <h5>Precio: {{ p._precio }}</h5>
                                                                         <h5>------------------------------------------------------------</h5>
                                                                 </div>
                                                                 <form name="userForm" novalidate>
@@ -399,11 +399,11 @@
                                                                 <div id="col{{p.id}}" class="col-sm-6 text-center " ng-repeat="p in lProducts | filter: { categoria: 'Escaleras' }" table-hover>
                                                                         <h1></h1>
                                                                         <IMG src="http://vignette3.wikia.nocookie.net/monsterhunterespanol/images/a/aa/Imagen-no-disponible-282x300.png/revision/latest?cb=20140827124248&path-prefix=es" ALT="Bontón Editar" height="210" width="210">
-                                                                        <h3 ng-model="product.name"><strong>Articulo: {{ p.name }}</strong></h3>
-                                                                        <h4><strong>Codigo: {{ p.id }}</strong></h4>
-                                                                        <h5><strong>Cant. Disponible: {{ p.stock }}</strong></h5>
-                                                                        <h5>Categoria: {{ p.categoria }}</h5>
-                                                                        <h5>Precio: {{ p.precio }}</h5>
+                                                                        <h3 ng-model="product.name"><strong>Articulo: {{ p._nombre }}</strong></h3>
+                                                                        <h4><strong>Codigo: {{ p._id }}</strong></h4>
+                                                                        <h5><strong>Cant. Disponible: {{ p._cantidadDisponible }}</strong></h5>
+                                                                        <h5>Categoria: {{ p._nombreCategoria}}</h5>
+                                                                        <h5>Precio: {{ p._precio }}</h5>
                                                                         <h5>------------------------------------------------------------</h5>
                                                                 </div>
                                                                 <form name="userForm" novalidate>
@@ -433,18 +433,18 @@
                                                                 <div id="col{{p.id}}" class="col-sm-6 text-center " ng-repeat="p in lProducts" table-hover>
                                                                         <h1></h1>
                                                                         <IMG src="http://vignette3.wikia.nocookie.net/monsterhunterespanol/images/a/aa/Imagen-no-disponible-282x300.png/revision/latest?cb=20140827124248&path-prefix=es" ALT="Bontón Editar" height="210" width="210">
-                                                                        <h3 ng-model="product.name"><strong>Articulo: {{ p.name }}</strong></h3>
-                                                                        <h4><strong>Codigo: {{ p.id }}</strong></h4>
-                                                                        <h5><strong>Cant. Disponible: {{ p.stock }}</strong></h5>
-                                                                        <h5>Categoria: {{ p.categoria }}</h5>
-                                                                        <h5>Precio: {{ p.precio }}</h5>
+                                                                        <h3 ng-model="product.name"><strong>Articulo: {{ p._nombre }}</strong></h3>
+                                                                        <h4><strong>Codigo: {{ p._id }}</strong></h4>
+                                                                        <h5><strong>Cant. Disponible: {{ p._cantidadDisponible }}</strong></h5>
+                                                                        <h5>Categoria: {{ p._nombreCategoria}}</h5>
+                                                                        <h5>Precio: {{ p._precio }}</h5>
                                                                         <h5>------------------------------------------------------------</h5>
                                                                 </div>
                                                                 <form name="userForm" novalidate>
                                                                             <br>.</br>
                                                                             <label for="nombre">Digite el codigo del producto</label>
                                                                             <br>
-                                                                            <input id="name" class="form-control" name="nombre" type="text" ng-model="product.nombre" placeholder="Codigo del producto"/>
+                                                                            <input id="name" class="form-control" name="nombre" type="text" ng-model="product.id" placeholder="Codigo del producto"/>
                                                                             <br/>
                                                                             <label for="cantidad">Digite la cantidad deseada</label><br/>
                                                                             <input id="cantidad" class="form-control" name="cantidad" type="number" ng-model="product.cantidad" placeholder="Cantidad de producto a adquirir"/>

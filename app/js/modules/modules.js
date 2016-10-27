@@ -90,7 +90,7 @@ proyectoE.controller("loginUserController",function($scope,$http,miServicioIP,US
 
 proyectoE.controller("listaProductosController",function($scope,$http, miServicioIP){
     
-    $scope.IP=miServicioIP;
+    //$scope.IP=miServicioIP;
     $scope.error1Alert=false;
     $scope.correctoAlert=false;
     
@@ -115,13 +115,14 @@ proyectoE.controller("listaProductosController",function($scope,$http, miServici
     $scope.sendProducts=[];
     $scope.receiveMessage;
     
-    $scope.ran=$scope.IP.concat("stages/addMaterials");
+    //$scope.ran=$scope.IP.concat("stages/addMaterials");
     
-    $scope.registerEtapa={_nombre:'gerald', _descripcion:'geraldparkm1'};
+    //$scope.registerEtapa={_nombre:'gerald', _descripcion:'geraldparkm1'};
     
-    
-    $http.get($scope.IP.concat("stages/addMaterials")).
+    $scope.dir=miServicioIP.ip+"materials/getMaterials";
+    $http.get($scope.dir).
     success(function(data){
+        console.log(data);
         $scope.lProducts = data;
         console.log(data);
     });
@@ -139,20 +140,20 @@ proyectoE.controller("listaProductosController",function($scope,$http, miServici
             
             for (var i=0;i<$scope.lProducts.length;i++){
                 
-                if($scope.product.id==$scope.lProducts[i].id){
+                if($scope.product.id==$scope.lProducts[i]._id){
                     
                     for (var i=0;i<$scope.lProducts.length;i++){
                         
-                        if($scope.product.id==$scope.lProducts[i].id){
+                        if($scope.product.id==$scope.lProducts[i]._id){
                             
-                            if($scope.product.cantidad<=$scope.lProducts[i].stock){
+                            if($scope.product.cantidad<=$scope.lProducts[i]._cantidadDisponible){
                                 $scope.error1Alert=false;
                                 $scope.correctoAlert=true;
-                                $scope.precioUnidad=parseInt($scope.lProducts[i].precio);
+                                $scope.precioUnidad=parseInt($scope.lProducts[i]._precio);
                                 $scope.precioMayoreo=parseInt($scope.precioUnidad)*parseInt($scope.product.cantidad);
                                 $scope.precioTotalEtapa=parseInt($scope.precioTotalEtapa)+parseInt($scope.precioMayoreo);
                                 
-                                $scope.sendProducts=({"_id": $scope.lProducts[i].id,"_nombre": $scope.lProducts[i].name,"_precio": $scope.lProducts[i].precio,"_cantidadDisponible" : $scope.lProducts[i].stock});
+                                $scope.sendProducts=({"_id": $scope.lProducts[i]._id,"_nombre": $scope.lProducts[i]._nombre,"_precio": $scope.lProducts[i]._precio,"_cantidadDisponible" : $scope.lProducts[i]._cantidadDisponible});
                                 
                                 $scope.escogencia.push($scope.sendProducts);
                                 console.log(JSON.stringify($scope.escogencia));
@@ -179,6 +180,12 @@ proyectoE.controller("listaProductosController",function($scope,$http, miServici
               }
             
         };
+    $scope.dir1=miServicioIP.ip+"stages/addMaterials";
+    $http.post($scope.dir1).
+        success(function(data){
+            //$scope.receiveMessage = data;
+            console.log(data);
+    });
         
 })
 
