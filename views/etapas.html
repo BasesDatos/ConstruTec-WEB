@@ -23,7 +23,7 @@
 
                                <tbody>
                                   <tr ng-repeat="n in letapas">
-                                      <td><a ng-click="setEtapaMate(n._id)" data-toggle="modal" data-target="#etapaInfo">{{n._nombre}}</a></td>
+                                      <td><a ng-click="setEtapaMate(n._nombre,n._id)" data-toggle="modal" data-target="#etapaInfo">{{n._nombre}}</a></td>
                                      <td>{{n._fInicio}}</td>
                                      <td>{{n._fFin}}</td>
                                       <td>

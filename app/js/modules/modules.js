@@ -185,24 +185,34 @@ proyectoE.controller("listaProductosController",function($scope,$http, miServici
 
 proyectoE.factory('etapaInfo', function() {
   return {
-    mensaje: '',
-    getValor: function() {
-      return this.mensaje;
+    nombre:'',
+    id:0,
+    getId: function() {
+      return this.id;
     },
-    setValor: function(msg) {
-      this.mensaje = msg;
+    getNombre: function() {
+      return this.nombre;
+    },
+    setValor: function(nombre,id) {
+      this.id = id;
+      this.nombre = nombre;
     }
   };
 })
 
 proyectoE.factory('MeInfo', function() {
   return {
+    nombre:'',
     id:0,
-    getValor: function() {
+    getId: function() {
       return this.id;
     },
-    setValor: function(msg) {
-      this.id = msg;
+    getNombre: function() {
+      return this.nombre;
+    },
+    setValor: function(nombre,id) {
+      this.id = id;
+      this.nombre = nombre;
     }
   };
 })
@@ -221,7 +231,7 @@ proyectoE.factory('USER', function() {
 
 
 proyectoE.controller('proyectoController',function($scope,$http,etapaInfo,miServicioIP,USER){
-    $scope.usuario=etapaInfo.mensaje;
+    $scope.usuario=etapaInfo.getNombre();
     $scope.lProyecto=[];
     
     $scope.dir=miServicioIP.ip +"users/getProjects?pUser="+USER.getValor();
@@ -235,19 +245,20 @@ proyectoE.controller('proyectoController',function($scope,$http,etapaInfo,miServ
     }
     
     
-    $scope.setNP=function(name){
-        etapaInfo.mensaje=name;
-        console.log(etapaInfo.mensaje=name);
-        $scope.usuario=etapaInfo.mensaje;
+    $scope.setNP=function(name,id){
+        etapaInfo.setValor(name,id);
+        $scope.usuario=etapaInfo.getNombre();
+        
     }
     
 });
 
 proyectoE.controller('etapaController',function($scope,$http,etapaInfo,miServicioIP,MeInfo){
-    $scope.usuario=etapaInfo.getValor();
+    $scope.usuario=etapaInfo.getNombre();
+    $scope.id = etapaInfo.getId();
     $scope.letapas=[];
     
-    $scope.dir=miServicioIP.ip +"projects/getStagesProjects/"+$scope.usuario;
+    $scope.dir=miServicioIP.ip +"projects/getStagesProjects/"+$scope.id;
     $http.get($scope.dir).
     success(function(data){
         $scope.letapas = data;
@@ -255,14 +266,13 @@ proyectoE.controller('etapaController',function($scope,$http,etapaInfo,miServici
     });
     
     $scope.getNP=function(){
-        $scope.usuario=etapaInfo.mensaje;
+        $scope.usuario=etapaInfo.getNombre();
     }
     //$scope.setNP=function(name){
       //  nuevaEtapaInfo.mensaje=name;
     //}
-    $scope.setEtapaMate=function(id){
-        console.log("Entor");
-        MeInfo.setValor(id);
+    $scope.setEtapaMate=function(nombre,id){
+        MeInfo.setValor(nombre,id);
        
     }
 })
@@ -270,7 +280,7 @@ proyectoE.controller('etapaController',function($scope,$http,etapaInfo,miServici
 proyectoE.controller('nuevaEtapaController',function($scope,etapaInfo){
     $scope.varr = 0;
     $scope.eNombre ="albin";
-    $scope.usuario=etapaInfo.getValor();
+    $scope.usuario=etapaInfo.getNombre();
     
     
     $scope.letapas= [{pNombre:"Etapa1",pInicio:"10/11/15",pFin:"23/12/16"},
@@ -281,19 +291,20 @@ proyectoE.controller('nuevaEtapaController',function($scope,etapaInfo){
 });
 
 proyectoE.controller('dataEtapaController',function($scope,MeInfo,$http,miServicioIP){
-    $scope.id=MeInfo.getValor();
+    $scope.id=0;
+    $scope.nombreEtapa='';
     $scope.letapas=[];
     
-    $scope.actualizar=function(){
-       $scope.id=MeInfo.getValor();
-       $scope.dir=miServicioIP.ip +"stages/getMaterialsStage/"+$scope.id;
-       $http.get($scope.dir).
+     $('#etapaInfo').on('shown.bs.modal', function() {
+         $scope.id=MeInfo.getId();
+         $scope.nombreEtapa=MeInfo.getNombre();
+         $scope.dir=miServicioIP.ip +"stages/getMaterialsStage/"+$scope.id;
+         $http.get($scope.dir).
           success(function(data){
                 $scope.letapas = data;
                 console.log(data);
-            });
-    }
-    
+          });
+     });
 
 });
 
