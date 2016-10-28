@@ -12,32 +12,13 @@
                                         </div>
                                         <br>
                                     </div>
-
-                                    <div class = "form-group">
-                                        <div class="row">
-                                            <div class = "col-sm-1"></div>
-                                            <div class = "col-sm-10">
-                                                <div class="input-group">
-                                                    <span class="input-group-addon"><span class="glyphicon glyphicon-user" style="color:#46C6E6"></span></span>
-                                                    <input type="text" class="form-control" placeholder="Nombre" ng-model="eNombre" required>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class = "form-group">
-                                        <div class="row">
-                                            <div class = "col-sm-1"></div>
-                                            <div class = "col-sm-10">
-                                                <div class="input-group">
-                                                    <span class="input-group-addon"><span class="glyphicon glyphicon-pencil" style="color:46C6E6"></span></span>
-                                                    <input type="text" class="form-control" placeholder="Descripción" ng-model="eDescripcion" required>
-                                                </div>  
-                                            </div>
-                                        </div>
+                                    <div>
+                                        <button type="button" class="btn btn-success" ng-click="update()"><span class="glyphicon glyphicon-refresh" >Refrescar</span></button>
+                                        <br>.</br>
                                     </div>
                                     
                                     
-                                    <div class = "form-group">
+                                    <div class = "form-group" ng-show="ocultador">
                                         
                                         <div class="row">
                                                 <div class = "col-sm-1"></div>
@@ -49,7 +30,7 @@
                                                 </div>
                                         </div>
                                     </div>
-                                    <div class = "form-group">
+                                    <div class = "form-group" ng-show="ocultador">
                                         <div class="row">
                                                 <div class = "col-sm-1"></div>
                                                 <div class = "col-sm-10">
@@ -61,7 +42,7 @@
                                         </div>
                                     </div>
                                     
-                                    <div class = "form-group">
+                                    <div class = "form-group" ng-hide="ocultador2">
                                         <div class="row">
                                                 <div class = "col-sm-1"></div>
                                                 <div class = "col-sm-10">
@@ -69,6 +50,18 @@
                                                 </div>
                                         </div>
                                     </div>
+                                    <div class = "form-group">
+                                        <div class="row">
+                                                <div class = "col-sm-1"></div>
+                                                <div class = "col-sm-10">
+                                                    <select ng-model="ing" ng-options="e as e._nombre for e in letapas track by e._id" >
+                                                        <option value="">--Elija una etapa--</option>
+                                                    </select>
+                                                </div>
+                                        </div>
+                                        
+                                    </div>
+                                    
                                 </form>
                             </div>
                         </div>

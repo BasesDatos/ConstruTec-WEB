@@ -1,4 +1,5 @@
-proyectoE.constant("miServicioIP",{"ip": "http://172.26.104.236:9090/"});
+proyectoE.constant("miServicioIP",{"ip": "http://172.26.103.15:9090/"});
+//stages/all
 
 proyectoE.controller('Bar',function($scope,USER){
     $scope.user="";
@@ -7,7 +8,7 @@ proyectoE.controller('Bar',function($scope,USER){
     }
 
 });
-proyectoE.controller('RegUserController',function($scope){
+proyectoE.controller('RegUserController',function($scope,$http,miServicioIP){
     $scope.userName="";
     $scope.nombreUsuario="";
     $scope.nombre="";
@@ -50,7 +51,8 @@ proyectoE.controller('RegUserController',function($scope){
         }else{
             console.log("");
         }
-        $http.post($scope.IP.concat("users/register"),$scope.user).
+        $scope.dir=miServicioIP.ip+"users/register";
+        $http.post($scope.dir,$scope.user).
         success(function(data){
             $scope.receiveMessage = data;
             console.log(data);
@@ -58,7 +60,58 @@ proyectoE.controller('RegUserController',function($scope){
         
     }
 });
+proyectoE.controller('regUserRegisteredController',function($scope,$http,miServicioIP){
+    $scope.userName="";
+    $scope.nombreUsuario="";
+    $scope.nombre="";
+    $scope.pApellido="";
+    $scope.sApellido="";
+    $scope.cedula="";
+    $scope.ingCode="";
+    $scope.contrasena="";
+    $scope.tel="";
+    $scope.rol="";
+    $scope.isRol=false;
 
+    
+    $scope.activacion=function(){
+        if ($scope.rol=="Usuario general"){
+            $scope.isRol=false;
+        }else{
+            if($scope.rol=="Ingeniero"){
+                $scope.isRol=true;
+            }else{
+                $scope.isRol=false;
+            }
+        }
+        
+    }
+    $scope.registrar=function(){
+        if($scope.rol!=""){
+            if ($scope.rol=="Usuario general"){
+            $scope.ingCode="";
+            $scope.user={"_usuario": $scope.userName,"_contrasena": $scope.contrasena,"_rol": 1,"_codigo":$scope.ingCode};
+        }else{
+            if($scope.rol=="Ingeniero"){
+            $scope.user={"_usuario": $scope.userName,"_contrasena": $scope.contrasena,"_rol": 2,"_codigo":$scope.ingCode};
+            }else{
+                $scope.ingCode="";
+                $scope.user={"_usuario": $scope.userName,"_contrasena": $scope.contrasena,"_rol": 3,"_codigo":$scope.ingCode};
+                
+            }
+        }
+        }else{
+            console.log("");
+        }
+        $scope.dir=miServicioIP.ip+"users/newrol";
+        $http.post($scope.dir,$scope.user).
+        success(function(data){
+            $scope.receiveMessage = data;
+            console.log(data);
+    });
+        
+    }
+});
 proyectoE.controller("loginUserController",function($scope,$http,miServicioIP,USER){
     $scope.successA=false;
     $scope.errorA=false;
@@ -72,7 +125,9 @@ proyectoE.controller("loginUserController",function($scope,$http,miServicioIP,US
         
         $scope.dir=miServicioIP.ip+"users/login";
         $http.post($scope.dir,$scope.inicioSesion).
+        
         success(function(data){
+            console.log("se ejecuto");
             $scope.receiveMessage = data;
             if($scope.receiveMessage != 1 && $scope.receiveMessage !=2){
                 $scope.successA=true;
@@ -290,17 +345,33 @@ proyectoE.controller('etapaController',function($scope,$http,etapaInfo,miServici
     }
 })
 
-proyectoE.controller('nuevaEtapaController',function($scope,etapaInfo){
-    $scope.eNombre ="albin";
+proyectoE.controller('nuevaEtapaController',function($scope,$http,etapaInfo,miServicioIP){
+    $scope.ocultador=true;
+    $scope.ocultador2=true;
+    $scope.ocultador3=true;
+    $scope.eNombre ="jaja";
     $scope.eDescripcion ="";
     $scope.eFInicio ="";
     $scope.eFFinal="";
+    $scope.dir=miServicioIP.ip +"stages/all";
+    $scope.update=function(){
+        $http.get($scope.dir).
+        success(function(data){
+            $scope.letapas = data;
+            console.log(data);
+        });
+    };
+    $scope.nuevaEtapa=function(){
+        $scope.ocultador=false;
+        $scope.ocultador2=false;
+    };
+    
+    /**$scope.letapas= [{pNombre:"Etapa1",pInicio:"10/11/15",pFin:"23/12/16",pId:1},
+                    {pNombre:"Etapa2",pInicio:"10/11/15",pFin:"23/12/16",pId:2},
+                    {pNombre:"Etapa3",pInicio:"10/11/15",pFin:"23/12/16",pId:3},
+                    {pNombre:"Etapa4",pInicio:"10/11/15",pFin:"23/12/16",pId:4}];*/
     
     
-    $scope.letapas= [{pNombre:"Etapa1",pInicio:"10/11/15",pFin:"23/12/16"},
-                    {pNombre:"Etapa2",pInicio:"10/11/15",pFin:"23/12/16"},
-                    {pNombre:"Etapa3",pInicio:"10/11/15",pFin:"23/12/16"},
-                    {pNombre:"Etapa4",pInicio:"10/11/15",pFin:"23/12/16"}];
 
 });
 

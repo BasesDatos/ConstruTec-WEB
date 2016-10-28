@@ -21,6 +21,10 @@ proyectoE.config(['$routeProvider', function($routeProvider) {
                templateUrl: 'etapas.html',
                controller: 'etapaController'
             }).
+            when('/regUserRegistered',{
+                templateUrl:'regUserRegistered.html',
+                controller:'regUserRegisteredController'
+            }).
             when('/Login',{
                 templateUrl:'Login.html',
                 controller:'loginUserController'
