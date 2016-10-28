@@ -336,9 +336,6 @@ proyectoE.controller('etapaController',function($scope,$http,etapaInfo,miServici
     $scope.getNP=function(){
         $scope.usuario=etapaInfo.getNombre();
     }
-    //$scope.setNP=function(name){
-      //  nuevaEtapaInfo.mensaje=name;
-    //}
     $scope.setEtapaMate=function(nombre,id){
         MeInfo.setValor(nombre,id);
        
@@ -349,8 +346,6 @@ proyectoE.controller('nuevaEtapaController',function($scope,$http,etapaInfo,miSe
     $scope.ocultador=true;
     $scope.ocultador2=true;
     $scope.ocultador3=true;
-    $scope.eNombre ="jaja";
-    $scope.eDescripcion ="";
     $scope.eFInicio ="";
     $scope.eFFinal="";
     $scope.dir=miServicioIP.ip +"stages/all";
@@ -361,17 +356,17 @@ proyectoE.controller('nuevaEtapaController',function($scope,$http,etapaInfo,miSe
             console.log(data);
         });
     };
+    $scope.newEtapa={};
     $scope.nuevaEtapa=function(){
-        $scope.ocultador=false;
-        $scope.ocultador2=false;
+        $scope.dir=miServicioIP.ip +"stages/associateStage";
+        $scope.newEtapa={"_idProyecto":1,"_id": 2,"_fInicio": $scope.eFInicio,"_fFin": $scope.eFFinal};
+        $http.post($scope.dir,$scope.newEtapa).
+            success(function(data){
+                console.log($scope.newEtapa);
+                $scope.receiveMessage = data;
+                console.log(data);
+        });
     };
-    
-    /**$scope.letapas= [{pNombre:"Etapa1",pInicio:"10/11/15",pFin:"23/12/16",pId:1},
-                    {pNombre:"Etapa2",pInicio:"10/11/15",pFin:"23/12/16",pId:2},
-                    {pNombre:"Etapa3",pInicio:"10/11/15",pFin:"23/12/16",pId:3},
-                    {pNombre:"Etapa4",pInicio:"10/11/15",pFin:"23/12/16",pId:4}];*/
-    
-    
 
 });
 
