@@ -122,10 +122,9 @@ proyectoE.controller("loginUserController",function($scope,$http,miServicioIP,US
         $scope.successA=false;
         $scope.errorA=false;
         $scope.inicioSesion={"_usuario":$scope.userName,"_contrasena":$scope.contrasena};
-        
+        console.log($scope.inicioSesion)
         $scope.dir=miServicioIP.ip+"users/login";
         $http.post($scope.dir,$scope.inicioSesion).
-        
         success(function(data){
             console.log("se ejecuto");
             $scope.receiveMessage = data;
@@ -143,7 +142,7 @@ proyectoE.controller("loginUserController",function($scope,$http,miServicioIP,US
 
 
 
-proyectoE.controller("listaProductosController",function($scope,$http, miServicioIP){
+proyectoE.controller("listaProductosController",function($scope,$http, miServicioIP,MeInfo){
     
     //$scope.IP=miServicioIP;
     $scope.error1Alert=false;
@@ -236,7 +235,7 @@ proyectoE.controller("listaProductosController",function($scope,$http, miServici
             
         };
     $scope.dir1=miServicioIP.ip+"stages/addMaterials";
-    $scope.sendProducts1={"_id":1,"_materiales":$scope.escogencia};
+    $scope.sendProducts1={"_id":MeInfo.getId(),"_materiales":$scope.escogencia};
     
     $scope.sendEscojencia=function(){
         console.log($scope.sendProducts1);
@@ -356,10 +355,10 @@ proyectoE.controller('nuevaEtapaController',function($scope,$http,etapaInfo,miSe
             console.log(data);
         });
     };
-    $scope.newEtapa={};
+    $scope.ing={};
     $scope.nuevaEtapa=function(){
         $scope.dir=miServicioIP.ip +"stages/associateStage";
-        $scope.newEtapa={"_idProyecto":1,"_id": 2,"_fInicio": $scope.eFInicio,"_fFin": $scope.eFFinal};
+        $scope.newEtapa={"_idProyecto":etapaInfo.getId(),"_id": $scope.ing._id,"_fInicio": $scope.eFInicio,"_fFin": $scope.eFFinal};
         $http.post($scope.dir,$scope.newEtapa).
             success(function(data){
                 console.log($scope.newEtapa);
